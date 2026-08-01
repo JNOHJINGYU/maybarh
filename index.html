@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Mercedes-Maybach | Luxury Heritage &amp; Line-up</title>
+<meta name="description" content="Mercedes-Maybach의 헤리티지, 장인정신의 유산, 라인업(S-Class, GLS, EQS SUV, SL)을 소개하는 브랜드 쇼케이스 페이지입니다.">
+
+<!-- ==================================================
+     한글 본문 폰트: Noto Sans KR (Google Fonts, 400~900)
+     모든 방문자 기기에서 동일하게 렌더링되도록 공개 웹폰트만 사용
+     영문 라벨/연도용 세리프 포인트: Cormorant Garamond
+     ================================================== -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+/* ==================================================
+   1. 전역 변수 / 리셋
+   ================================================== */
+:root{
+  --bg-main:#F3EFE7;
+  --bg-main-2:#F1ECE3;
+  --bg-alt:#E8E0D5;
+  --bg-card:#FAF8F4;
+  --text-main:#171614;
+  --text-sub:#625D55;
+  --divider:rgba(30,25,20,0.14);
+  --accent:#8B7355;
+  --accent-2:#A08868;
+  --charcoal:#171614;
+  --footer-bg:#25231F;
+  --footer-text:#F3EFE7;
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --sans:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --dur:0.8s;
+  --header-h:76px;
+
+  /* 모바일 히어로 이미지 표시 방식
+     - 차량 단독(누끼) 이미지: contain
+     - 배경이 포함된 와이드 컷 이미지: cover
+     아래 한 줄만 바꾸면 전체에 반영됩니다. */
+  --hero-mobile-fit: cover;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--sans);
+  background:var(--bg-main);
+  color:var(--text-main);
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  word-break:keep-all;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;background:none;border:none;color:inherit;}
+ul{list-style:none;}
+.wrap{width:min(100% - 48px,1280px);margin-inline:auto;}
+.eng{font-family:var(--serif);}
+
+/* 고정 헤더에 섹션 제목이 가리지 않도록 스크롤 여백 확보 */
+section{scroll-margin-top:var(--header-h);}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:0.001ms !important;animation-iteration-count:1 !important;transition-duration:0.001ms !important;scroll-behavior:auto !important;}
+}
+
+/* 스크롤 등장 애니메이션 공통 */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.reveal.is-visible{opacity:1;transform:translateY(0);}
+.reveal-img{opacity:0;transition:opacity 1s var(--ease);}
+.reveal-img.is-visible{opacity:1;}
+
+/* ==================================================
+   2. 상단 내비게이션
+   ================================================== */
+.site-header{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  height:var(--header-h);
+  background:transparent;
+  border-bottom:1px solid transparent;
+  transition:background .4s var(--ease),border-color .4s var(--ease);
+}
+.site-header.scrolled{
+  background:rgba(243,239,231,0.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--divider);
+}
+.nav-inner{
+  width:min(100% - 40px,1400px);margin-inline:auto;
+  display:flex;align-items:center;justify-content:space-between;
+  height:100%;
+}
+.brand-logo{font-family:var(--serif);font-size:20px;letter-spacing:.04em;font-weight:600;}
+.nav-menu{display:flex;gap:40px;}
+.nav-menu a{font-size:13px;letter-spacing:.14em;font-weight:700;padding:6px 0;position:relative;}
+.nav-menu a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--text-main);transition:width .35s var(--ease);}
+.nav-menu a:hover::after{width:100%;}
+.nav-toggle{display:none;width:32px;height:32px;position:relative;}
+.nav-toggle span{position:absolute;left:4px;right:4px;height:1.5px;background:var(--text-main);transition:transform .3s var(--ease),opacity .3s var(--ease);}
+.nav-toggle span:nth-child(1){top:11px;}
+.nav-toggle span:nth-child(2){top:16px;}
+.nav-toggle span:nth-child(3){top:21px;}
+.nav-toggle.open span:nth-child(1){transform:translateY(5px) rotate(45deg);}
+.nav-toggle.open span:nth-child(2){opacity:0;}
+.nav-toggle.open span:nth-child(3){transform:translateY(-5px) rotate(-45deg);}
+
+.mobile-menu{
+  max-height:0;overflow:hidden;
+  background:var(--bg-main-2);
+  border-bottom:1px solid transparent;
+  transition:max-height .45s var(--ease),border-color .45s var(--ease);
+}
+.mobile-menu.open{max-height:260px;border-bottom:1px solid var(--divider);}
+.mobile-menu ul{padding:8px 24px 20px;}
+.mobile-menu a{display:block;padding:14px 0;font-size:14px;font-weight:700;letter-spacing:.06em;border-bottom:1px solid var(--divider);}
+.mobile-menu li:last-child a{border-bottom:none;}
+
+/* 모바일 메뉴가 열려 있을 때 배경 콘텐츠 클릭 방지 */
+.nav-scrim{
+  display:none;position:fixed;inset:var(--header-h) 0 0 0;z-index:990;
+  background:rgba(23,22,20,0.18);
+}
+.nav-scrim.open{display:block;}
+
+@media (max-width:1023px){
+  .nav-menu{display:none;}
+  .nav-toggle{display:block;}
+}
+
+/* ==================================================
+   3. 히어로 섹션
+   ================================================== */
+.hero{
+  position:relative;min-height:88vh;
+  display:flex;align-items:flex-end;
+  overflow:hidden;
+}
+.hero-media{position:absolute;inset:0;background:linear-gradient(150deg,#EFE9DC,#E4D9C4 55%,#DCCEB4);}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 62%;}
+.hero-media.has-image::after{
+  content:'';position:absolute;inset:0;
+  /* 왼쪽(텍스트 영역)만 자연스럽게 어두워지는 수평 그라데이션 + 아주 약한 하단 그라데이션 */
+  background:
+    linear-gradient(90deg,
+      rgba(15,18,18,0.72) 0%,
+      rgba(15,18,18,0.56) 24%,
+      rgba(15,18,18,0.22) 43%,
+      rgba(15,18,18,0.04) 62%,
+      rgba(15,18,18,0) 76%
+    ),
+    linear-gradient(180deg,
+      rgba(15,18,18,0) 82%,
+      rgba(15,18,18,0.10) 100%
+    );
+}
+/* 이미지가 없을 때: 은은한 장식선 텍스처 (오류 아이콘/깨진 이미지 없음) */
+.hero-media.no-image{
+  background-image:
+    repeating-linear-gradient(120deg, rgba(139,115,85,0.05) 0px, rgba(139,115,85,0.05) 1px, transparent 1px, transparent 64px),
+    linear-gradient(150deg,#EFE9DC,#E4D9C4 55%,#DCCEB4);
+}
+.hero-content{
+  position:relative;z-index:2;width:100%;
+  padding:0 0 clamp(48px,7vw,96px);
+}
+
+/* 텍스트 영역 폭 제한 + 최초 1회 등장 애니메이션 */
+.hero-copy{
+  max-width:620px;
+  animation:heroCopyIn 1.1s var(--ease) both;
+}
+@keyframes heroCopyIn{
+  from{opacity:0;transform:translateY(20px);filter:blur(3px);}
+  to{opacity:1;transform:translateY(0);filter:blur(0);}
+}
+
+.hero-eyebrow{
+  font-family:var(--serif);font-style:italic;font-size:clamp(13px,1.4vw,16px);
+  letter-spacing:.28em;color:rgba(255,255,255,0.96);text-transform:uppercase;margin-bottom:18px;
+  text-shadow:0 1px 10px rgba(0,0,0,.2);
+}
+.hero-title{
+  font-weight:900;color:#FFFFFF;
+  font-size:clamp(38px,4.6vw,64px);
+  line-height:1.2;letter-spacing:-.01em;
+  max-width:16ch;
+  /* 절제된 3D 플로팅 효과: 위쪽 미세한 하이라이트 + 짧고 진한 그림자 + 중간 확산 + 넓고 부드러운 원거리 그림자 */
+  text-shadow:
+    0 1px 0 rgba(255,255,255,.18),
+    0 3px 0 rgba(20,22,22,.28),
+    0 7px 12px rgba(0,0,0,.32),
+    0 18px 38px rgba(0,0,0,.38);
+  transform:translate3d(0,-2px,0);
+}
+.hero-sub{
+  margin-top:22px;color:rgba(255,255,255,0.94);font-weight:500;
+  font-size:clamp(15px,1.5vw,18px);max-width:44ch;line-height:1.7;
+  text-shadow:0 1px 10px rgba(0,0,0,.22);
+}
+.hero-desc{
+  margin-top:12px;color:rgba(255,255,255,0.78);font-weight:400;
+  font-size:clamp(13px,1.15vw,15px);max-width:48ch;line-height:1.75;
+  text-shadow:0 1px 8px rgba(0,0,0,.18);
+}
+
+/* PC에서 글자가 화면 왼쪽 끝에 너무 붙지 않도록 추가 여백 확보 (.wrap과 중복되지 않게 hero-copy에만 적용) */
+@media (min-width:1024px){
+  .hero-copy{padding-left:clamp(0px,3vw,56px);}
+}
+
+/* 모바일: 이미지와 텍스트를 완전히 분리 (겹침 없음) */
+@media (max-width:767px){
+  .hero{
+    min-height:0;display:block;
+  }
+  .hero-media{
+    position:relative;
+    height:clamp(220px,58vw,420px);
+  }
+  .hero-media img{object-fit:var(--hero-mobile-fit);}
+  .hero-media.has-image::after{display:none;} /* 다크 오버레이 표시 안 함 */
+  .hero-content{
+    position:static;background:var(--bg-main);
+    padding:32px 20px 44px;
+  }
+  .hero-copy{padding-left:0;}
+  .hero-eyebrow,
+  .hero-title,
+  .hero-sub,
+  .hero-desc{
+    text-shadow:none;
+    transform:none;
+  }
+  .hero-eyebrow{color:var(--accent);}
+  .hero-title{color:var(--text-main);font-size:clamp(26px,7.2vw,36px);max-width:none;}
+  .hero-sub{color:var(--text-sub);max-width:none;}
+  .hero-desc{color:var(--text-sub);max-width:none;}
+}
+
+/* ==================================================
+   4. 공통 섹션 프레임
+   ================================================== */
+section{padding-block:clamp(72px,7vw,120px);}
+.section-alt{background:var(--bg-alt);}
+.section-head{max-width:760px;margin-bottom:clamp(44px,5vw,72px);}
+.eyebrow{
+  font-family:var(--serif);font-style:italic;color:var(--accent);
+  font-size:14px;letter-spacing:.22em;text-transform:uppercase;margin-bottom:14px;
+}
+.section-title{
+  font-weight:900;font-size:clamp(24px,3.4vw,42px);line-height:1.4;letter-spacing:-.01em;
+  max-width:16ch;
+}
+.section-desc{margin-top:18px;color:var(--text-sub);font-size:16px;line-height:1.85;max-width:640px;}
+
+/* ==================================================
+   5. 헤리티지 / 타임라인 섹션
+   ================================================== */
+.heritage-intro{max-width:680px;color:var(--text-sub);font-size:16px;line-height:1.9;margin-bottom:clamp(48px,5.5vw,80px);}
+
+/* 헤리티지 섹션 전용 컨테이너: 이미지가 핵심 콘텐츠로 보이도록 일반 .wrap보다 넓게 사용 */
+.heritage-wrap{
+  width:min(100% - 64px,1500px);
+  margin-inline:auto;
+}
+
+.timeline{position:relative;}
+.timeline::before{
+  content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;
+  background:var(--divider);transform:translateX(-50%);
+}
+.tl-item{
+  display:grid;grid-template-columns:minmax(0,1fr) 110px minmax(0,1fr);align-items:center;gap:0 48px;
+  padding-block:clamp(44px,5vw,76px);position:relative;
+}
+.tl-year{
+  grid-column:2;text-align:center;position:relative;z-index:2;
+}
+.tl-year span{
+  display:inline-block;font-family:var(--serif);font-weight:600;font-size:clamp(19px,2vw,26px);
+  background:var(--bg-main);padding:6px 6px;color:var(--text-main);
+}
+.tl-text, .tl-media{grid-row:1;}
+.tl-item--odd .tl-text{grid-column:1;text-align:right;}
+.tl-item--odd .tl-media{grid-column:3;}
+.tl-item--even .tl-text{grid-column:3;order:2;}
+.tl-item--even .tl-media{grid-column:1;order:1;}
+
+/* 텍스트 영역: 최대 너비 제한 + 홀수/짝수 정렬은 컨테이너 단위로 적용 */
+.tl-text{max-width:480px;}
+.tl-item--odd .tl-text{margin-inline-start:auto;margin-inline-end:0;}
+.tl-item--even .tl-text{margin-inline-start:0;margin-inline-end:auto;}
+
+.tl-heading{
+  font-weight:800;font-size:clamp(20px,1.6vw,25px);
+  line-height:1.45;margin-bottom:18px;
+}
+.tl-body{
+  color:var(--text-sub);font-size:15px;line-height:1.9;
+}
+.tl-body--second,
+.tl-body--third{margin-top:14px;}
+.tl-keywords{
+  margin-top:22px;color:var(--accent);
+  font-family:var(--serif);font-size:12.5px;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;
+}
+
+/* 연도 사이를 잇는 짧은 연결 문구 - 타임라인 중앙선 가까이 절제된 형태로 배치 */
+.tl-connector{
+  display:flex;justify-content:center;align-items:center;
+  padding-block:2px;position:relative;z-index:2;
+}
+.tl-connector-text{
+  font-family:var(--serif);font-style:italic;font-size:13px;
+  color:var(--text-sub);background:var(--bg-main);
+  padding:5px 16px;letter-spacing:.01em;
+}
+
+/* 이미지 박스: 이미지가 있을 때는 액자처럼 보이지 않도록 여백/배경/테두리 없이
+   원본 비율 그대로 표시. 이미지 컬럼 폭으로만 크기를 제한한다. */
+.tl-media{
+  width:100%;
+  max-width:680px;
+  height:auto;
+  padding:0;margin:0;
+  background:transparent;
+  border:none;
+  overflow:hidden;position:relative;
+  display:block;
+}
+.tl-item--odd .tl-media{margin-inline-start:auto;margin-inline-end:0;}
+.tl-item--even .tl-media{margin-inline-start:0;margin-inline-end:auto;}
+.tl-media img{
+  display:block;
+  width:100%;height:auto;
+  max-width:100%;max-height:none;
+  object-fit:unset;object-position:center;
+  cursor:zoom-in;
+  transition:opacity .35s ease;
+}
+.tl-media:hover img{opacity:.96;}
+/* 이미지가 없을 때(placeholder)만 아이보리 박스 + 최소 높이를 부여 */
+.tl-media:has(.img-placeholder){
+  min-height:240px;
+  background:var(--bg-alt);
+  border:1px solid var(--divider);
+  display:flex;align-items:center;justify-content:center;
+}
+
+@media (max-width:900px){
+  .heritage-wrap{width:min(100% - 32px,100%);}
+  .timeline::before{left:26px;}
+  .tl-item{grid-template-columns:52px 1fr;gap:0 18px;padding-block:clamp(24px,4.4vw,36px);}
+  .tl-year{grid-column:1;}
+  .tl-year span{font-size:16px;padding:4px 3px;}
+  .tl-text,.tl-media{grid-column:2 !important;text-align:left !important;order:0 !important;}
+  .tl-text,
+  .tl-item--odd .tl-text,
+  .tl-item--even .tl-text{max-width:none;margin-inline:0;}
+  .tl-media,
+  .tl-item--odd .tl-media,
+  .tl-item--even .tl-media{
+    margin-top:16px;margin-inline:0;
+    max-width:none;padding:0;min-height:0;
+  }
+  .tl-connector{justify-content:flex-start;padding-left:36px;}
+  .tl-connector-text{padding:4px 10px 4px 0;font-size:12px;background:transparent;}
+  .tl-media:has(.img-placeholder){min-height:200px;}
+  .tl-media img{width:100%;height:auto;max-height:none;object-fit:unset;}
+}
+
+/* 이미지 placeholder: 고급스러운 단색 아이보리, 안내문구만 노출 */
+.img-placeholder{
+  width:100%;height:100%;min-height:120px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--text-sub);font-size:13px;letter-spacing:.03em;text-align:center;padding:12px;
+  background:var(--bg-card);
+}
+
+/* ==================================================
+   6. 마이바흐 라인업 섹션
+   ================================================== */
+.lineup-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,3vw,40px);
+}
+.model-card{
+  background:var(--bg-card);border:1px solid var(--divider);
+  display:flex;flex-direction:column;
+  transition:box-shadow .4s var(--ease),transform .4s var(--ease);
+}
+a.model-card{cursor:pointer;}
+a.model-card:hover{box-shadow:0 18px 42px rgba(30,25,20,.08);transform:translateY(-3px);}
+.model-media{
+  aspect-ratio:4/3;overflow:hidden;position:relative;background:var(--bg-alt);
+  display:flex;align-items:center;justify-content:center;
+}
+.model-media img{width:100%;height:100%;object-fit:contain;padding:18px;transition:transform .55s var(--ease);}
+a.model-card:hover .model-media img{transform:scale(1.035);}
+.model-body{padding:clamp(22px,2.4vw,32px);flex:1;display:flex;flex-direction:column;}
+.model-label{font-size:11px;letter-spacing:.2em;color:var(--accent);font-weight:700;margin-bottom:10px;}
+.model-name{font-weight:800;font-size:clamp(19px,1.8vw,23px);margin-bottom:12px;}
+.model-desc{color:var(--text-sub);font-size:14.5px;line-height:1.8;flex:1;}
+.model-link{
+  margin-top:20px;display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:700;letter-spacing:.04em;
+}
+.model-link .arrow{transition:transform .3s var(--ease);}
+a.model-card:hover .model-link .arrow{transform:translateX(5px);}
+.model-card--static .model-link{color:var(--text-sub);font-weight:600;}
+
+@media (max-width:860px){
+  .lineup-grid{grid-template-columns:1fr;}
+}
+
+/* ==================================================
+   7. 마이바흐를 선택하는 이유 (MAYBACH VALUE)
+   ================================================== */
+.why-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--divider);
+}
+.why-item{
+  padding:clamp(28px,3vw,44px) clamp(14px,2vw,26px);
+  border-right:1px solid var(--divider);
+  border-bottom:1px solid var(--divider);
+}
+.why-item:nth-child(4n){border-right:none;}
+.why-word{font-family:var(--serif);font-weight:600;font-size:clamp(20px,2vw,26px);letter-spacing:.02em;margin-bottom:14px;}
+.why-desc{color:var(--text-sub);font-size:14px;line-height:1.75;}
+
+@media (max-width:900px){
+  .why-grid{grid-template-columns:1fr 1fr;}
+  .why-item:nth-child(4n){border-right:1px solid var(--divider);}
+  .why-item:nth-child(2n){border-right:none;}
+}
+@media (max-width:480px){
+  .why-grid{grid-template-columns:1fr;}
+  .why-item{border-right:none !important;}
+  .why-item:last-child{border-bottom:none;}
+}
+
+/* ==================================================
+   8. 푸터 (브랜드 공통 안내 - 개인/지역 정보 없음)
+   ================================================== */
+.site-footer{background:var(--footer-bg);color:var(--footer-text);padding-block:56px 30px;}
+.footer-brand{font-family:var(--serif);font-size:20px;letter-spacing:.04em;margin-bottom:18px;}
+.footer-note{font-size:13.5px;line-height:1.9;color:rgba(243,239,231,.82);max-width:640px;padding-bottom:26px;border-bottom:1px solid rgba(243,239,231,0.14);}
+.footer-bottom{padding-top:20px;font-size:12.5px;color:rgba(243,239,231,.6);line-height:1.9;}
+
+/* ==================================================
+   9. 이미지 확대 모달 (헤리티지 이미지 전용)
+   ================================================== */
+.lightbox{
+  position:fixed;inset:0;z-index:2000;
+  background:rgba(15,14,12,0.86);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;visibility:hidden;transition:opacity .3s ease;
+  padding:24px;padding:max(24px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left));
+}
+.lightbox.open{opacity:1;visibility:visible;}
+.lightbox img{max-width:90vw;max-height:88vh;object-fit:contain;box-shadow:0 30px 80px rgba(0,0,0,.4);}
+.lightbox-close{
+  position:absolute;top:22px;right:22px;width:48px;height:48px;
+  border:1px solid rgba(255,255,255,.4);border-radius:50%;color:#fff;font-size:22px;
+  display:flex;align-items:center;justify-content:center;
+}
+@media (max-width:767px){
+  .lightbox img{max-width:96vw;max-height:82vh;}
+}
+
+/* 유틸: 스킵링크 */
+.skip-link{position:absolute;left:-999px;top:0;background:#fff;color:#000;padding:10px 16px;z-index:3000;}
+.skip-link:focus{left:12px;top:12px;}
+
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">본문 바로가기</a>
+
+<!-- ==================================================
+     1. 상단 고정 내비게이션
+     ================================================== -->
+<header class="site-header" id="siteHeader">
+  <div class="nav-inner">
+    <a href="#top" class="brand-logo" aria-label="Mercedes-Maybach 홈 상단으로 이동">Mercedes-Maybach</a>
+    <nav class="nav-menu" aria-label="주요 메뉴">
+      <a href="#heritage">HERITAGE</a>
+      <a href="#lineup">LINE-UP</a>
+      <a href="#maybach-value">MAYBACH VALUE</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#heritage">HERITAGE</a></li>
+      <li><a href="#lineup">LINE-UP</a></li>
+      <li><a href="#maybach-value">MAYBACH VALUE</a></li>
+    </ul>
+  </div>
+</header>
+<div class="nav-scrim" id="navScrim"></div>
+
+<main id="main">
+
+<!-- ==================================================
+     2. 히어로 섹션 (버튼 없음, 제목/부제목/설명/이미지만 구성)
+     ================================================== -->
+<section class="hero" id="top">
+  <div class="hero-media reveal-img" id="heroMedia"></div>
+  <div class="wrap hero-content">
+    <div class="hero-copy">
+      <p class="hero-eyebrow eng">Mercedes-Maybach</p>
+      <h1 class="hero-title">최고라는 단어조차<br>부족한 순간</h1>
+      <p class="hero-sub">자동차를 넘어, 이동의 모든 순간을<br>예술과 휴식으로 완성하는 Mercedes-Maybach.</p>
+      <p class="hero-desc">장인정신과 혁신, 그리고 한 세기를 이어온 헤리티지가<br>가장 특별한 이동의 순간을 완성합니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================================================
+     3. 마이바흐 역사 및 헤리티지 섹션
+     ================================================== -->
+<section id="heritage" aria-labelledby="heritageTitle">
+  <div class="heritage-wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow eng">A Legacy Beyond Time</p>
+      <h2 class="section-title" id="heritageTitle">한 세기를 넘어 이어진<br>럭셔리의 이름</h2>
+    </div>
+    <p class="heritage-intro reveal">
+      마이바흐는 최고의 기술과 최고의 품격이 만나는 지점을 향한 오랜 도전 속에서 출발한 이름입니다.
+    </p>
+    <!-- 연도별 데이터는 아래 JavaScript의 HISTORY_DATA에서 관리됩니다 -->
+    <div class="timeline" id="timelineWrap"></div>
+  </div>
+</section>
+
+<!-- ==================================================
+     4. 마이바흐 라인업 섹션
+     ================================================== -->
+<section id="lineup" aria-labelledby="lineupTitle">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow eng">Mercedes-Maybach Line-up</p>
+      <h2 class="section-title" id="lineupTitle">당신의 삶을 완성하는<br>네 가지 마이바흐</h2>
+      <p class="section-desc">세단, SUV, 전기차, 오픈톱 로드스터까지. 서로 다른 라이프스타일 위에 마이바흐만의 품격을 더했습니다.</p>
+    </div>
+    <div class="lineup-grid" id="lineupGrid"><!-- MODEL_DATA로부터 자동 생성됩니다 --></div>
+  </div>
+</section>
+
+<!-- ==================================================
+     5. 마이바흐를 선택하는 이유 (MAYBACH VALUE)
+     ================================================== -->
+<section class="section-alt" id="maybach-value" aria-labelledby="whyTitle">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2 class="section-title" id="whyTitle" style="max-width:20ch">마이바흐는 더 비싼 자동차가 아니라<br>다른 기준으로 만들어진 자동차입니다</h2>
+    </div>
+    <div class="why-grid reveal">
+      <div class="why-item">
+        <p class="why-word eng">Bespoke</p>
+        <p class="why-desc">고객의 취향을 반영한 개인화와 맞춤형 구성</p>
+      </div>
+      <div class="why-item">
+        <p class="why-word eng">Craftsmanship</p>
+        <p class="why-desc">사람의 손과 시간이 완성한 섬세한 마감</p>
+      </div>
+      <div class="why-item">
+        <p class="why-word eng">Serenity</p>
+        <p class="why-desc">외부 세계와 분리된 듯한 정숙함과 안락함</p>
+      </div>
+      <div class="why-item">
+        <p class="why-word eng">Presence</p>
+        <p class="why-desc">멀리서도 단번에 느껴지는 독보적인 존재감</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ==================================================
+     6. 푸터 (브랜드 공통 안내 - 지역/담당자 정보 없음)
+     ================================================== -->
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="footer-brand">Mercedes-Maybach</p>
+    <p class="footer-note">
+      본 페이지의 이미지와 차량 정보는 실제 판매 차량과 다를 수 있으며,<br>
+      모델, 사양 및 제공 여부는 시장 상황에 따라 변경될 수 있습니다.
+    </p>
+    <p class="footer-bottom">&copy; <span id="copyYear"></span> Mercedes-Maybach Showcase. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- ==================================================
+     7. 이미지 확대 모달 (헤리티지 이미지 전용)
+     ================================================== -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="이미지 확대 보기" aria-hidden="true">
+  <button class="lightbox-close" id="lightboxClose" aria-label="이미지 확대 닫기">&times;</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<script>
+/* =====================================================
+   ★★★ 이곳에 이미지 주소만 입력하세요 ★★★
+   URL(https://...) 또는 images/파일명.jpg 형태로 입력합니다.
+   비워두면 자동으로 안내 placeholder가 표시되며
+   레이아웃은 깨지지 않습니다.
+   ===================================================== */
+const IMAGE_LINKS = {
+  hero: "https://github.com/JNOHJINGYU/images/blob/main/maybarh_hero.jpg?raw=true",
+
+  /* 1908: 제플린 LZ4 사고 / 국민 모금 관련 이미지 (기존 1921에 있던 비행선 이미지를 이동) */
+  history1908: "https://github.com/JNOHJINGYU/images/blob/main/1908_jeppelin.png?raw=true",
+  /* 1909: 마이바흐 비행선 엔진 회사 설립 당시 사무실/공방 이미지 */
+  history1909: "https://github.com/JNOHJINGYU/images/blob/main/maybarh_office.jpeg?raw=true",
+  /* 1921: 반드시 Maybach W3 자동차 이미지로 채워주세요 (제플린 이미지는 위 1908로 이동됨) */
+  history1921: "https://github.com/JNOHJINGYU/images/blob/main/1921_maybarh_w3.png?raw=true",
+  history1930: "https://github.com/JNOHJINGYU/images/blob/main/MAYBARH_KING.png?raw=true",
+  history2002: "https://github.com/JNOHJINGYU/images/blob/main/maybarh_samsung.png?raw=true",
+  history2015: "https://github.com/JNOHJINGYU/images/blob/main/2016_MAYBARH.jpg?raw=true",
+  historyToday: "https://github.com/JNOHJINGYU/images/blob/main/MAYBARH_ALL.png?raw=true",
+
+  maybachSClass: "https://github.com/JNOHJINGYU/images/blob/main/maybarh_new_s.jpg?raw=true",
+  maybachGLS: "https://github.com/JNOHJINGYU/images/blob/main/maybarh_new_gls.jpg?raw=true",
+  maybachEQSSUV: "https://github.com/JNOHJINGYU/images/blob/main/maybarh_eqs.jpg?raw=true",
+  maybachSL: "https://github.com/JNOHJINGYU/images/blob/main/maybarh_sl.jpg?raw=true",
+};
+
+/* ==================================================
+   헤리티지 타임라인 데이터 (HISTORY_DATA)
+   ================================================== */
+const HISTORY_DATA = [
+  {
+    year:"1908",
+    title:"독일 국민이 다시 띄운 하나의 꿈",
+    body1:"1908년, 독일의 미래를 상징하던 제플린 비행선 LZ 4가 폭풍 속에서 파괴되었습니다. 오랜 연구와 막대한 자금이 투입된 비행선이 한순간에 사라지면서 페르디난트 폰 제플린의 도전도 끝나는 듯했습니다.",
+    body2:"그러나 사고 소식을 접한 독일 국민들은 자발적으로 모금에 참여했습니다. 학생과 노동자, 농민과 기업가까지 각자의 방식으로 성금을 보냈고, 불과 몇 주 만에 600만 마르크가 넘는 기금이 모였습니다.",
+    body3:"이 성금은 단순한 복구 비용이 아니었습니다. 독일의 기술과 미래를 포기하지 않겠다는 국민적 의지였으며, 제플린은 한 기업의 비행선을 넘어 독일 국민 모두의 꿈이 되었습니다.",
+    keywords:"DREAM · UNITY · NATIONAL PRIDE",
+    imgKey:"history1908"
+  },
+  {
+    year:"1909",
+    title:"제플린의 심장이 된 마이바흐",
+    connector:"국민의 꿈에는, 그 꿈을 움직일 심장이 필요했습니다.",
+    body1:"제플린 비행선을 다시 하늘에 띄우기 위해서는 가볍고 강력하면서도 장시간 안정적으로 작동하는 엔진이 필요했습니다.",
+    body2:"빌헬름 마이바흐와 그의 아들 카를 마이바흐는 당시의 기술적 한계를 넘어서는 비행선용 엔진 개발에 뛰어들었습니다. 그리고 1909년, 제플린 비행선의 엔진을 전문적으로 제작하기 위한 회사를 설립하며 마이바흐라는 이름의 새로운 역사를 시작했습니다.",
+    body3:"거대한 비행선을 움직인 것은 단순한 기계가 아니었습니다. 국민의 염원을 하늘로 들어 올리는 마이바흐의 기술이었습니다. 정밀함과 신뢰성, 강력한 성능을 향한 집념은 훗날 마이바흐 자동차의 기술 철학으로 이어졌습니다.",
+    keywords:"POWER · PRECISION · RELIABILITY",
+    imgKey:"history1909"
+  },
+  {
+    year:"1921",
+    title:"하늘의 기술이 도로 위 럭셔리가 되다",
+    connector:"하늘에서 증명된 기술은 이제 도로를 향했습니다.",
+    body1:"제플린 비행선을 위해 축적한 고성능 엔진 기술은 1921년 마이바흐 최초의 양산 자동차 W3로 이어졌습니다.",
+    body2:"W3는 강력한 엔진과 네 바퀴 브레이크, 편안한 변속 시스템을 적용하며 당시 최고 수준의 기술과 안락함을 갖춘 자동차로 등장했습니다.",
+    body3:"비행선을 움직이던 정밀공학이 이제 도로 위에서 조용하고 편안하며 품격 있는 이동을 완성하기 시작했습니다. 마이바흐는 기술적 우수성을 럭셔리한 경험으로 바꾸는 독창적인 자동차 브랜드의 길을 걷기 시작했습니다.",
+    keywords:"AVIATION · AUTOMOBILE · LUXURY",
+    imgKey:"history1921"
+  },
+  {
+    year:"1930",
+    title:"왕족과 산업가를 위한 단 하나의 자동차",
+    body1:"1920년대와 1930년대 마이바흐는 왕족과 국가 지도자, 산업가와 예술가들이 선택하는 최상위 자동차 브랜드로 성장했습니다. Maybach Zeppelin과 같은 모델은 강력한 12기통 엔진과 압도적인 존재감으로 당대 최고의 자동차를 상징했습니다.",
+    body2:"차체와 인테리어는 고객의 취향에 맞춰 개별 제작되었으며, 마이바흐는 자동차를 대량생산품이 아닌 한 사람을 위해 완성되는 작품으로 바라봤습니다.",
+    keywords:"BESPOKE · PRESTIGE · CRAFTSMANSHIP",
+    imgKey:"history1930"
+  },
+  {
+    year:"2002",
+    title:"전설의 이름이 다시 깨어나다",
+    body1:"오랜 시간이 흐른 뒤 마이바흐는 Maybach 57과 62를 통해 현대적인 최고급 자동차 브랜드로 다시 세상에 등장했습니다. 차량명은 각각의 차체 길이를 의미하며, 특히 Maybach 62는 넓고 안락한 뒷좌석을 중심으로 설계되었습니다.",
+    body2:"과거의 장인정신과 현대적인 자동차 기술이 결합되며 마이바흐는 이동의 목적보다 이동하는 사람의 경험을 우선하는 최고급 쇼퍼드리븐 세단의 새로운 기준을 제시했습니다.",
+    keywords:"REBIRTH · FIRST CLASS · EXCLUSIVITY",
+    imgKey:"history2002"
+  },
+  {
+    year:"2015",
+    title:"Mercedes-Maybach, 새로운 시대의 시작",
+    body1:"마이바흐는 Mercedes-Maybach라는 이름으로 Mercedes-Benz의 최상위 럭셔리 브랜드로 새롭게 자리 잡았습니다. S-Class의 첨단 기술과 승차감 위에 마이바흐만의 정숙성과 공간, 최고급 소재를 더했습니다.",
+    body2:"과거의 전통을 그대로 재현하는 것이 아니라 한 세기 동안 이어진 장인정신을 현대적인 방식으로 해석하며 새로운 세대의 럭셔리를 만들어가기 시작했습니다.",
+    keywords:"HERITAGE · INNOVATION · MODERN LUXURY",
+    imgKey:"history2015"
+  },
+  {
+    year:"TODAY",
+    title:"하나의 세단을 넘어, 하나의 세계로",
+    body1:"오늘날 Mercedes-Maybach는 S-Class뿐 아니라 GLS, EQS SUV, SL까지 다양한 차급으로 세계를 확장하고 있습니다. 세단과 SUV, 전기차와 로드스터에서도 마이바흐만의 여유와 품격은 동일하게 이어집니다.",
+    body2:"최고의 소재, 정숙성, 편안한 승차감과 탑승자 한 사람을 배려하는 세심한 기술을 통해 마이바흐는 자동차를 넘어 가장 개인적인 휴식 공간을 완성합니다.",
+    keywords:"SERENITY · INDIVIDUALITY · TIMELESS LUXURY",
+    imgKey:"historyToday"
+  },
+];
+
+/* ==================================================
+   라인업 모델 데이터 (MODEL_DATA)
+   - imgKey는 위 IMAGE_LINKS의 키만 참조합니다 (URL 직접 입력 금지)
+   - link에 실제 상세페이지 주소를 입력하면 카드 전체가 링크로 렌더링됩니다.
+     예) link: "maybach-s-class.html"
+   - link를 비워두거나 "#"으로 두면 클릭 불가능한 안내 카드로 표시됩니다.
+   ================================================== */
+const MODEL_DATA = [
+  {
+    name:"Mercedes-Maybach S-Class",
+    desc:"움직이는 퍼스트 클래스. 최고의 승차감과 정숙성, 그리고 뒷좌석 중심의 럭셔리를 완성한 플래그십 세단.",
+    imgKey:"maybachSClass", link:""
+  },
+  {
+    name:"Mercedes-Maybach GLS",
+    desc:"압도적인 존재감과 여유로운 공간. SUV의 실용성과 마이바흐의 품격이 만난 최고급 럭셔리 SUV.",
+    imgKey:"maybachGLS", link:""
+  },
+  {
+    name:"Mercedes-Maybach EQS SUV",
+    desc:"고요함 위에 완성된 새로운 럭셔리. 전기 모빌리티와 마이바흐의 감성이 결합된 최상위 전기 SUV.",
+    imgKey:"maybachEQSSUV", link:""
+  },
+  {
+    name:"Mercedes-Maybach SL",
+    desc:"오픈 에어링의 감성과 마이바흐의 우아함. 운전자 중심의 즐거움과 독보적인 희소성을 갖춘 럭셔리 로드스터.",
+    imgKey:"maybachSL", link:""
+  },
+];
+
+/* ==================================================
+   유틸 함수
+   ================================================== */
+function escapeHTML(str){
+  return String(str).replace(/[&<>"']/g, (c) => ({
+    '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'
+  }[c]));
+}
+
+function isValidLink(link){
+  return !!(link && link.trim() !== '' && link.trim() !== '#');
+}
+
+// 이미지 로드 실패 시 깨진 이미지 아이콘 대신 안내 placeholder로 교체
+function handleImgError(imgEl){
+  const ph = document.createElement('div');
+  ph.className = 'img-placeholder';
+  ph.textContent = '이미지를 준비 중입니다';
+  if(imgEl && imgEl.parentNode){
+    imgEl.replaceWith(ph);
+  }
+}
+
+// 헤리티지/라인업 공용: 이미지 또는 placeholder 마크업 반환
+function buildImageMarkup(key, altText, opts){
+  opts = opts || {};
+  const src = IMAGE_LINKS[key];
+  const altSafe = escapeHTML(altText || '');
+  if(src){
+    const zoomAttrs = opts.zoomable
+      ? `class="zoomable-image" tabindex="0" role="button" aria-label="${altSafe} 이미지 확대 보기"`
+      : '';
+    return `<img src="${escapeHTML(src)}" alt="${altSafe}" loading="lazy" ${zoomAttrs} onerror="handleImgError(this)">`;
+  }
+  return `<div class="img-placeholder">이미지를 준비 중입니다</div>`;
+}
+
+/* ==================================================
+   렌더링: 헤리티지 타임라인
+   ================================================== */
+function renderTimeline(){
+  const wrap = document.getElementById('timelineWrap');
+  wrap.innerHTML = HISTORY_DATA.map((item, idx) => {
+    const side = (idx % 2 === 0) ? 'tl-item--odd' : 'tl-item--even';
+    return `
+    ${item.connector ? `
+    <div class="tl-connector reveal" aria-hidden="true">
+      <span class="tl-connector-text eng">${escapeHTML(item.connector)}</span>
+    </div>` : ''}
+    <div class="tl-item ${side} reveal">
+      <div class="tl-year"><span class="eng">${escapeHTML(item.year)}</span></div>
+      <div class="tl-text">
+        <p class="tl-heading">${escapeHTML(item.title)}</p>
+        <p class="tl-body">${escapeHTML(item.body1)}</p>
+        <p class="tl-body tl-body--second">${escapeHTML(item.body2)}</p>
+        ${item.body3 ? `<p class="tl-body tl-body--third">${escapeHTML(item.body3)}</p>` : ''}
+        <p class="tl-keywords eng">${escapeHTML(item.keywords)}</p>
+      </div>
+      <div class="tl-media">${buildImageMarkup(item.imgKey, item.title + ' 관련 이미지', {zoomable:true})}</div>
+    </div>
+  `;
+  }).join('');
+}
+
+/* ==================================================
+   렌더링: 라인업 카드
+   - 이미지에는 zoomable-image를 적용하지 않음 (확대 모달과 상세이동 충돌 방지)
+   - 링크 유효 여부에 따라 <a>(클릭 가능) 또는 <article>(안내용) 렌더링
+   ================================================== */
+function renderLineup(){
+  const wrap = document.getElementById('lineupGrid');
+  wrap.innerHTML = MODEL_DATA.map(model => {
+    const media = buildImageMarkup(model.imgKey, model.name, {zoomable:false});
+    const inner = `
+      <div class="model-media">${media}</div>
+      <div class="model-body">
+        <p class="model-label eng">Explore Model</p>
+        <p class="model-name">${escapeHTML(model.name)}</p>
+        <p class="model-desc">${escapeHTML(model.desc)}</p>
+        <span class="model-link">${isValidLink(model.link) ? '상세보기 <span class="arrow">&rarr;</span>' : '상세페이지 준비 중'}</span>
+      </div>
+    `;
+    if(isValidLink(model.link)){
+      return `<a class="model-card reveal" href="${escapeHTML(model.link)}" aria-label="${escapeHTML(model.name)} 상세보기">${inner}</a>`;
+    }
+    return `<article class="model-card model-card--static reveal" aria-label="${escapeHTML(model.name)} 상세페이지 준비 중">${inner}</article>`;
+  }).join('');
+}
+
+/* ==================================================
+   히어로 이미지 처리
+   - 있으면 표시, 없거나 로드 실패 시 은은한 그라데이션 배경 유지
+   - 오류 아이콘/깨진 이미지 노출 없음
+   ================================================== */
+function initHero(){
+  const media = document.getElementById('heroMedia');
+  const src = IMAGE_LINKS.hero;
+  if(src){
+    const img = document.createElement('img');
+    img.alt = 'Mercedes-Maybach 대표 이미지';
+    img.loading = 'eager'; /* 히어로 이미지는 lazy loading 적용하지 않음 */
+    img.onerror = function(){
+      media.classList.remove('has-image');
+      media.classList.add('no-image');
+      img.remove();
+    };
+    img.onload = function(){
+      media.classList.add('has-image');
+      media.classList.remove('no-image');
+    };
+    img.src = src;
+    media.appendChild(img);
+  } else {
+    media.classList.add('no-image');
+  }
+}
+
+/* ==================================================
+   내비게이션: 스크롤 배경 전환 + 모바일 메뉴 토글
+   ================================================== */
+function initNav(){
+  const header = document.getElementById('siteHeader');
+  const toggle = document.getElementById('navToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const scrim = document.getElementById('navScrim');
+
+  function onScroll(){
+    if(window.scrollY > 40){ header.classList.add('scrolled'); }
+    else{ header.classList.remove('scrolled'); }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  function closeMenu(){
+    mobileMenu.classList.remove('open');
+    toggle.classList.remove('open');
+    toggle.setAttribute('aria-expanded','false');
+    scrim.classList.remove('open');
+  }
+  function openMenu(){
+    mobileMenu.classList.add('open');
+    toggle.classList.add('open');
+    toggle.setAttribute('aria-expanded','true');
+    scrim.classList.add('open');
+  }
+
+  toggle.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.contains('open');
+    isOpen ? closeMenu() : openMenu();
+  });
+
+  scrim.addEventListener('click', closeMenu);
+
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', closeMenu);
+  });
+
+  // 화면 크기가 데스크톱으로 바뀌면 모바일 메뉴 상태를 초기화해
+  // 상태가 꼬이지 않도록 처리
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      if(window.innerWidth > 1023){ closeMenu(); }
+    }, 150);
+  });
+}
+
+/* ==================================================
+   스크롤 reveal 애니메이션 (IntersectionObserver)
+   ================================================== */
+function initReveal(){
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry, idx) => {
+      if(entry.isIntersecting){
+        const delay = entry.target.classList.contains('tl-item') ? (idx % 6) * 70 : 0;
+        setTimeout(() => entry.target.classList.add('is-visible'), delay);
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.14, rootMargin:'0px 0px -60px 0px'});
+
+  document.querySelectorAll('.reveal, .reveal-img').forEach(el => io.observe(el));
+}
+
+/* ==================================================
+   이미지 확대 모달 (헤리티지 이미지 전용)
+   - 포커스 이동/복귀, ESC, 바깥 클릭, 스크롤 잠금, 키보드(Enter/Space) 지원
+   ================================================== */
+function initLightbox(){
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const closeBtn = document.getElementById('lightboxClose');
+  let lastTrigger = null;
+
+  function openLightbox(triggerEl){
+    const src = triggerEl.currentSrc || triggerEl.src;
+    if(!src) return;
+    lastTrigger = triggerEl;
+    lightboxImg.src = src;
+    lightboxImg.alt = triggerEl.alt || '';
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+  function closeLightbox(){
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+    lightboxImg.src = '';
+    if(lastTrigger){ lastTrigger.focus(); lastTrigger = null; }
+  }
+
+  document.addEventListener('click', (e) => {
+    const target = e.target.closest('.zoomable-image');
+    if(target){
+      e.preventDefault();
+      openLightbox(target);
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    const target = e.target.closest && e.target.closest('.zoomable-image');
+    if(target && (e.key === 'Enter' || e.key === ' ')){
+      e.preventDefault();
+      openLightbox(target);
+    }
+  });
+
+  closeBtn.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox(); });
+}
+
+/* ==================================================
+   초기 실행
+   ================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+  renderTimeline();
+  renderLineup();
+  initHero();
+  initNav();
+  initLightbox();
+  initReveal();
+  const yearEl = document.getElementById('copyYear');
+  if(yearEl) yearEl.textContent = new Date().getFullYear();
+});
+</script>
+</body>
+</html>
