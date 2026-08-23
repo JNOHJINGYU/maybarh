@@ -1,0 +1,1974 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Mercedes-Maybach SL 680 Monogram Series | Open Air. Beyond Luxury.</title>
+<meta name="description" content="Mercedes-Maybach SL 680 Monogram Series 브랜드 쇼케이스 페이지. 오픈 에어링의 감성과 마이바흐의 우아함이 만난 럭셔리 로드스터를 소개합니다.">
+
+<!-- ==================================================
+     한글 본문 폰트: Noto Sans KR (Google Fonts, 400~900)
+     영문 라벨/연도용 세리프 포인트: Cormorant Garamond
+     ※ 기존 Mercedes-Maybach 메인 랜딩페이지와 동일한 디자인 언어(아이보리 + 샴페인 골드,
+       Serif+Sans 폰트, 절제된 애니메이션, 이미지 확대)를 그대로 계승합니다.
+     ================================================== -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+/* ==================================================
+   1. 전역 변수 / 리셋 (메인페이지와 동일한 토큰)
+   ================================================== */
+:root{
+  --bg-main:#F3EFE7;
+  --bg-main-2:#F1ECE3;
+  --bg-alt:#E8E0D5;
+  --bg-card:#FAF8F4;
+  --text-main:#171614;
+  --text-sub:#625D55;
+  --divider:rgba(30,25,20,0.14);
+  --accent:#8B7355;
+  --accent-2:#A08868;
+  --charcoal:#171614;
+  --footer-bg:#25231F;
+  --footer-text:#F3EFE7;
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --sans:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --dur:0.8s;
+  --header-h:76px;
+  --hero-mobile-fit: cover;
+  --glow:rgba(160,136,104,0.35);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--sans);
+  background:var(--bg-main);
+  color:var(--text-main);
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  word-break:keep-all;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;background:none;border:none;color:inherit;}
+ul{list-style:none;}
+.wrap{width:min(calc(100% - clamp(28px,4vw,72px)),1680px);margin-inline:auto;}
+.eng{font-family:var(--serif);}
+section{scroll-margin-top:var(--header-h);}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:0.001ms !important;animation-iteration-count:1 !important;transition-duration:0.001ms !important;scroll-behavior:auto !important;}
+}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.reveal.is-visible{opacity:1;transform:translateY(0);}
+.reveal-img{opacity:0;transition:opacity 1s var(--ease);}
+.reveal-img.is-visible{opacity:1;}
+.reveal-scale{opacity:0;transform:scale(.96);transition:opacity 1s var(--ease),transform 1.1s var(--ease);}
+.reveal-scale.is-visible{opacity:1;transform:scale(1);}
+
+/* ==================================================
+   2. 상단 내비게이션
+   ================================================== */
+.site-header{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  height:var(--header-h);
+  background:transparent;
+  border-bottom:1px solid transparent;
+  transition:background .4s var(--ease),border-color .4s var(--ease);
+}
+.site-header.scrolled{
+  background:rgba(243,239,231,0.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--divider);
+}
+.nav-inner{
+  width:min(100% - 40px,1400px);margin-inline:auto;
+  display:flex;align-items:center;justify-content:space-between;
+  height:100%;
+}
+.brand-logo{font-family:var(--serif);font-size:19px;letter-spacing:.03em;font-weight:600;}
+.brand-logo .sub{display:block;font-size:10.5px;letter-spacing:.32em;color:var(--accent);font-weight:600;margin-top:2px;}
+.nav-menu{display:flex;gap:36px;}
+.nav-menu a{font-size:13px;letter-spacing:.14em;font-weight:700;padding:6px 0;position:relative;}
+.nav-menu a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--text-main);transition:width .35s var(--ease);}
+.nav-menu a:hover::after{width:100%;}
+.nav-toggle{display:none;width:32px;height:32px;position:relative;}
+.nav-toggle span{position:absolute;left:4px;right:4px;height:1.5px;background:var(--text-main);transition:transform .3s var(--ease),opacity .3s var(--ease);}
+.nav-toggle span:nth-child(1){top:11px;}
+.nav-toggle span:nth-child(2){top:16px;}
+.nav-toggle span:nth-child(3){top:21px;}
+.nav-toggle.open span:nth-child(1){transform:translateY(5px) rotate(45deg);}
+.nav-toggle.open span:nth-child(2){opacity:0;}
+.nav-toggle.open span:nth-child(3){transform:translateY(-5px) rotate(-45deg);}
+
+.mobile-menu{
+  max-height:0;overflow:hidden;
+  background:var(--bg-main-2);
+  border-bottom:1px solid transparent;
+  transition:max-height .45s var(--ease),border-color .45s var(--ease);
+}
+.mobile-menu.open{max-height:360px;border-bottom:1px solid var(--divider);}
+.mobile-menu ul{padding:8px 24px 20px;}
+.mobile-menu a{display:block;padding:14px 0;font-size:14px;font-weight:700;letter-spacing:.06em;border-bottom:1px solid var(--divider);}
+.mobile-menu li:last-child a{border-bottom:none;}
+
+.nav-scrim{
+  display:none;position:fixed;inset:var(--header-h) 0 0 0;z-index:990;
+  background:rgba(23,22,20,0.18);
+}
+.nav-scrim.open{display:block;}
+
+@media (max-width:1023px){
+  .nav-menu{display:none;}
+  .nav-toggle{display:block;}
+}
+
+/* ==================================================
+   3. 히어로 / 엔딩 히어로 (공통 스타일)
+   ================================================== */
+.hero{position:relative;min-height:94vh;display:flex;align-items:flex-end;overflow:hidden;padding-block:clamp(72px,7vw,120px);} /* 감성 여백은 기존 그대로 유지 (전역 section 여백 축소와 무관) */
+.hero-media{position:absolute;inset:0;background:linear-gradient(150deg,#EFE9DC,#E4D9C4 55%,#DCCEB4);}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 58%;}
+.hero-media.has-image::after{
+  content:'';position:absolute;inset:0;
+  background:
+    linear-gradient(90deg,rgba(15,18,18,0.68) 0%,rgba(15,18,18,0.5) 24%,rgba(15,18,18,0.18) 45%,rgba(15,18,18,0.02) 64%,rgba(15,18,18,0) 78%),
+    linear-gradient(180deg,rgba(15,18,18,0) 78%,rgba(15,18,18,0.14) 100%);
+}
+.hero-media.no-image{
+  background-image:
+    repeating-linear-gradient(120deg, rgba(139,115,85,0.05) 0px, rgba(139,115,85,0.05) 1px, transparent 1px, transparent 64px),
+    linear-gradient(150deg,#EFE9DC,#E4D9C4 55%,#DCCEB4);
+}
+.hero-content{position:relative;z-index:2;width:100%;padding:0 0 clamp(48px,7vw,96px);}
+.hero-copy{max-width:640px;animation:heroCopyIn 1.1s var(--ease) both;}
+@keyframes heroCopyIn{from{opacity:0;transform:translateY(20px);filter:blur(3px);}to{opacity:1;transform:translateY(0);filter:blur(0);}}
+.hero-eyebrow{font-family:var(--serif);font-style:italic;font-size:clamp(13px,1.4vw,16px);letter-spacing:.28em;color:rgba(255,255,255,0.96);text-transform:uppercase;margin-bottom:18px;text-shadow:0 1px 10px rgba(0,0,0,.2);}
+.hero-title{font-weight:900;color:#FFFFFF;font-size:clamp(36px,5.2vw,72px);line-height:1.14;letter-spacing:-.01em;max-width:24ch;
+  text-shadow:0 1px 0 rgba(255,255,255,.18),0 3px 0 rgba(20,22,22,.28),0 7px 12px rgba(0,0,0,.32),0 18px 38px rgba(0,0,0,.38);}
+.hero-sub{margin-top:22px;color:rgba(255,255,255,0.94);font-weight:500;font-size:clamp(16px,1.7vw,20px);max-width:44ch;line-height:1.6;text-shadow:0 1px 10px rgba(0,0,0,.22);font-family:var(--serif);font-style:italic;}
+
+@media (min-width:1024px){.hero-copy{padding-left:clamp(0px,3vw,56px);}}
+
+/* 스크롤 유도 아이콘 (버튼 대체) */
+.scroll-cue{
+  position:absolute;left:50%;bottom:34px;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+  color:rgba(255,255,255,0.86);z-index:3;
+}
+.scroll-cue span{font-family:var(--serif);font-style:italic;font-size:11px;letter-spacing:.24em;text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.3);}
+.scroll-cue .line{width:1px;height:38px;background:linear-gradient(180deg,rgba(255,255,255,.9),rgba(255,255,255,0));animation:scrollLine 1.9s var(--ease) infinite;}
+@keyframes scrollLine{0%{transform:scaleY(0);transform-origin:top;opacity:.4;}50%{transform:scaleY(1);transform-origin:top;opacity:1;}51%{transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;opacity:.4;}}
+
+@media (max-width:767px){
+  .hero{min-height:0;display:block;}
+  .hero-media{position:relative;height:clamp(260px,72vw,460px);}
+  .hero-media img{object-fit:var(--hero-mobile-fit);}
+  .hero-media.has-image::after{display:none;}
+  .hero-content{position:static;background:var(--bg-main);padding:28px 16px 36px;}
+  .hero-copy{padding-left:0;}
+  .hero-eyebrow,.hero-title,.hero-sub{text-shadow:none;}
+  .hero-eyebrow{color:var(--accent);}
+  .hero-title{color:var(--text-main);font-size:clamp(30px,8.4vw,40px);max-width:none;}
+  .hero-sub{color:var(--text-sub);max-width:none;}
+  .scroll-cue{display:none;}
+}
+
+/* 엔딩 히어로: 배경/텍스트 배치는 동일, 중앙 정렬 + 하단 여백만 다름 */
+.ending-hero{min-height:82vh;align-items:center;justify-content:center;text-align:center;}
+.ending-hero .hero-content{padding-bottom:0;}
+.ending-hero .hero-copy{max-width:720px;margin-inline:auto;}
+.ending-hero .hero-title{max-width:none;margin-inline:auto;}
+.ending-hero .hero-eyebrow{text-align:center;}
+@media (max-width:767px){
+  .ending-hero .hero-content{padding:36px 20px 48px;}
+}
+
+/* ==================================================
+   4. 공통 섹션 프레임
+   ================================================== */
+section{padding-block:clamp(38px,3.5vw,64px);}
+.section-alt{background:var(--bg-alt);}
+.section-head{max-width:760px;margin-bottom:clamp(20px,2.2vw,34px);}
+.section-head.center{max-width:820px;margin-inline:auto;text-align:center;}
+.eyebrow{font-family:var(--serif);font-style:italic;color:var(--accent);font-size:clamp(12px,.85vw,15px);letter-spacing:.22em;text-transform:uppercase;margin-bottom:14px;}
+.section-head.center .eyebrow{justify-content:center;}
+.section-title{font-weight:900;font-size:clamp(30px,3vw,54px);line-height:1.28;letter-spacing:-.01em;max-width:16ch;}
+.section-head.center .section-title{max-width:none;margin-inline:auto;}
+.section-desc{margin-top:12px;color:var(--text-sub);font-size:clamp(15px,1.05vw,19px);line-height:1.7;max-width:760px;}
+.section-head.center .section-desc{margin-inline:auto;}
+
+/* ==================================================
+   5. Why Maybach SL - 감성 스테이트먼트 (Apple 스타일)
+   ================================================== */
+.why-section{padding-block:clamp(52px,5vw,88px);}
+.why-stage{max-width:900px;margin-inline:auto;text-align:center;}
+.why-line{font-weight:800;font-size:clamp(22px,3.4vw,38px);line-height:1.55;color:var(--text-sub);}
+.why-line + .why-line{margin-top:6px;}
+.why-line.strong{color:var(--text-main);font-weight:900;margin-top:34px;font-size:clamp(26px,4vw,46px);}
+.why-line .eng{color:var(--accent);font-style:italic;}
+.why-media{margin-top:clamp(30px,3vw,52px);aspect-ratio:16/8;overflow:hidden;background:var(--bg-card);border:1px solid var(--divider);}
+.why-media img{width:100%;height:100%;object-fit:cover;}
+
+/* ==================================================
+   6. Maybach Experience - 4개 스토리 카드
+   ================================================== */
+.experience-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.5vw,22px);}
+.exp-card{position:relative;overflow:hidden;background:var(--charcoal);aspect-ratio:4/5;}
+.exp-media{position:absolute;inset:0;}
+.exp-media img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease);}
+.exp-card:hover .exp-media img{transform:scale(1.06);}
+.exp-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,14,12,0) 42%,rgba(15,14,12,.86) 100%);}
+.exp-body{position:absolute;left:0;right:0;bottom:0;padding:clamp(24px,3vw,36px);color:#fff;}
+.exp-num{font-family:var(--serif);font-style:italic;font-size:clamp(13px,.9vw,14.5px);letter-spacing:.22em;color:var(--accent-2);text-transform:uppercase;margin-bottom:10px;}
+.exp-title{font-weight:800;font-size:clamp(20px,2.1vw,27px);margin-bottom:14px;}
+.exp-quote{font-family:var(--serif);font-style:italic;font-size:clamp(15px,1.45vw,18.5px);line-height:1.65;color:rgba(255,255,255,.92);max-width:38ch;}
+
+@media (max-width:860px){
+  .experience-grid{grid-template-columns:1fr;}
+  .exp-card{aspect-ratio:4/4.6;}
+}
+
+/* ==================================================
+   9. Signature Design - 탭 전환형 프리미엄 이미지 쇼케이스 (핫스팟 없음)
+   각 탭마다 이미지 원본 비율(ratio)·object-fit·object-position을 개별 지정한다.
+   프레임은 여백 없이 이미지를 채우고, 그림자와 하이라이트로 은은한 입체감을 만든다.
+   .showcase-stage는 이 스테이지 디자인을 그대로 재사용하는 공용 별칭 클래스 (Interior에서 사용)
+   ================================================== */
+.signature-stage,.showcase-stage{
+  position:relative;background:transparent;
+  aspect-ratio:16/9; /* 탭 전환 시 높이가 바뀌지 않도록 PC 공통 비율로 고정 */
+}
+.signature-stage .sig-media,.showcase-stage .sig-media{
+  position:relative;width:100%;height:100%;
+}
+.signature-stage .sig-frame,.showcase-stage .sig-frame{
+  position:relative;width:100%;height:100%;overflow:hidden;
+  border-radius:2px;
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.32);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.55) inset,
+    0 12px 28px rgba(23,22,20,0.10),
+    0 32px 64px -20px rgba(23,22,20,0.24),
+    0 52px 100px -38px rgba(23,22,20,0.20);
+  transform:perspective(1400px) translateY(-2px) rotateX(0.25deg);
+  transition:transform .45s ease,box-shadow .45s ease;
+}
+.signature-stage .sig-frame::after,.showcase-stage .sig-frame::after{
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:2;
+  background:linear-gradient(135deg,rgba(255,255,255,0.12) 0%,rgba(255,255,255,0.03) 24%,transparent 48%);
+  opacity:0.6;
+}
+.signature-stage .sig-ground,.showcase-stage .sig-ground{
+  position:absolute;left:9%;width:82%;height:34px;bottom:-20px;
+  background:rgba(23,22,20,0.16);filter:blur(18px);pointer-events:none;
+  transition:opacity .45s ease;
+}
+@media (hover:hover){
+  .signature-stage .sig-frame:hover,.showcase-stage .sig-frame:hover{
+    transform:perspective(1100px) translateY(-6px) scale(1.004) rotateX(0.35deg);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.6) inset,
+      0 16px 34px rgba(23,22,20,0.12),
+      0 38px 76px -20px rgba(23,22,20,0.28),
+      0 60px 116px -36px rgba(23,22,20,0.22);
+  }
+}
+/* 이미지 이중 버퍼(교차 페이드) - 사전 로딩된 두 레이어가 겹쳐 있다가 즉시 크로스페이드된다 */
+.signature-stage .sig-image,.showcase-stage .sig-image{
+  position:absolute;inset:0;width:100%;height:100%;display:block;
+  object-fit:cover;object-position:center;
+  opacity:0;transform:scale(1.006);
+  transition:opacity 160ms cubic-bezier(.22,.61,.36,1),transform 180ms cubic-bezier(.22,.61,.36,1);
+  will-change:opacity,transform;
+  backface-visibility:hidden;
+}
+.signature-stage .sig-image.is-active,.showcase-stage .sig-image.is-active{opacity:1;transform:scale(1);z-index:1;}
+.signature-stage .sig-image.sig-ph,.showcase-stage .sig-image.sig-ph{display:flex;align-items:center;justify-content:center;background:var(--bg-alt);}
+
+@media (max-width:700px){
+  .signature-stage,.showcase-stage{aspect-ratio:4/3;}
+  .signature-stage .sig-frame,.showcase-stage .sig-frame{
+    border-radius:1px;
+    transform:none;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.5) inset,
+      0 10px 22px rgba(23,22,20,0.09),
+      0 22px 42px -16px rgba(23,22,20,0.18),
+      0 34px 60px -24px rgba(23,22,20,0.12);
+  }
+  .signature-stage .sig-ground,.showcase-stage .sig-ground{height:22px;filter:blur(12px);opacity:0.75;}
+}
+
+/* 탭 버튼 */
+.sig-tabs{
+  margin-top:clamp(10px,1.2vw,16px);
+  display:flex;gap:10px;overflow-x:auto;padding-bottom:4px;
+  -webkit-overflow-scrolling:touch;scrollbar-width:thin;
+}
+.sig-tabs::-webkit-scrollbar{height:4px;}
+.sig-tabs::-webkit-scrollbar-thumb{background:var(--divider);}
+.sig-tab{
+  flex:none;position:relative;white-space:nowrap;
+  padding:12px 20px;border:1px solid var(--divider);
+  background:var(--bg-main);color:var(--text-main);
+  font-size:13px;font-weight:700;letter-spacing:.02em;
+  transition:background .3s var(--ease),border-color .3s var(--ease),color .3s var(--ease);
+}
+.sig-tab:hover{border-color:var(--accent);}
+.sig-tab[aria-selected="true"]{
+  background:var(--charcoal);color:#F3EFE7;border-color:var(--accent);
+}
+.sig-tab[aria-selected="true"]::before{
+  content:'';position:absolute;left:0;right:0;top:-1px;height:2px;background:var(--accent);
+}
+.sig-tab:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+
+@media (max-width:700px){
+  .sig-tab{padding:10px 16px;font-size:12.5px;}
+}
+
+.detail-panel{
+  margin-top:clamp(12px,1.4vw,18px);
+  display:flex;flex-direction:column;gap:clamp(24px,2.6vw,36px);
+  background:transparent;
+  opacity:0;transition:opacity 180ms ease;
+}
+.detail-panel.fade-in{opacity:1;}
+.detail-header{max-width:1100px;}
+.detail-eyebrow{font-family:var(--serif);font-style:italic;color:var(--accent);font-size:13px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px;}
+.detail-title{font-weight:800;font-size:clamp(22px,2.2vw,34px);line-height:1.3;margin-bottom:14px;}
+.detail-lead{max-width:1000px;font-size:clamp(17px,1.25vw,21px);line-height:1.7;color:var(--text-main);font-weight:500;}
+
+@media (min-width:1600px){
+  .detail-title{font-size:clamp(32px,1.8vw,36px);}
+  .detail-lead{font-size:21px;}
+}
+
+/* ==================================================
+   10. Interior - Signature Design과 동일한 이미지 쇼케이스 구조 재사용
+   (.showcase-stage/.sig-tabs/.sig-tab/.detail-panel 등 공용 클래스를 그대로 사용 - 위 9번 참고,
+   Interior 전용으로 남는 CSS는 없음 - 완전히 동일한 디자인 시스템을 공유한다)
+   ================================================== */
+
+/* ==================================================
+   11. Performance - 585 PS를 먼저 보여주는 Performance Story
+   ================================================== */
+.perf-engine-media{position:relative;aspect-ratio:16/7;overflow:hidden;background:var(--bg-card);cursor:zoom-in;}
+.perf-engine-media img{width:100%;height:100%;object-fit:cover;object-position:center;}
+.perf-engine-label{position:absolute;left:14px;bottom:14px;z-index:2;display:flex;gap:22px;background:rgba(23,22,20,0.62);color:#F3EFE7;padding:12px 18px;}
+.perf-engine-label .lbl-en{display:block;font-family:var(--serif);font-style:italic;font-size:10.5px;letter-spacing:.14em;color:var(--accent-2);margin-bottom:3px;text-transform:uppercase;}
+.perf-engine-label .lbl-val{font-size:12.5px;}
+
+.perf-stats{margin-top:clamp(24px,2.8vw,42px);display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--divider);}
+.perf-stat{border-left:1px solid var(--divider);padding:clamp(20px,2.4vw,32px) clamp(10px,1.4vw,16px);text-align:center;}
+.perf-stat:first-child{border-left:none;}
+.perf-stat-num{font-family:var(--serif);font-weight:600;font-size:clamp(40px,4vw,68px);line-height:1;color:var(--text-main);}
+.perf-stat-unit{margin-top:6px;font-size:clamp(16px,1.2vw,20px);color:var(--accent);letter-spacing:.04em;}
+.perf-stat-label{margin-top:8px;font-size:clamp(13px,.9vw,15px);color:var(--text-sub);letter-spacing:.02em;}
+
+.perf-cards{margin-top:clamp(24px,2.8vw,42px);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.6vw,22px);}
+.perf-card{background:#FAF8F4;border:1px solid var(--divider);padding:clamp(22px,2.2vw,30px);box-shadow:0 10px 30px rgba(23,22,20,.05);transition:transform .35s var(--ease);}
+@media (hover:hover){.perf-card:hover{transform:translateY(-3px);}}
+.perf-card-key{font-family:var(--serif);font-style:italic;font-size:13px;letter-spacing:.14em;color:var(--accent);text-transform:uppercase;margin-bottom:10px;}
+.perf-card-title{font-weight:800;font-size:clamp(22px,1.9vw,28px);line-height:1.35;margin-bottom:12px;color:var(--text-main);}
+.perf-card-desc{font-size:clamp(15px,1vw,17px);line-height:1.7;color:var(--text-sub);}
+
+@media (max-width:1023px){.perf-cards{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:767px){
+  .perf-stats{grid-template-columns:repeat(2,1fr);border-top:1px solid var(--divider);}
+  .perf-stat{border-left:1px solid var(--divider);border-top:1px solid var(--divider);}
+  .perf-stat:nth-child(odd){border-left:none;}
+  .perf-stat:nth-child(-n+2){border-top:none;}
+  .perf-stat-num{font-size:clamp(32px,10vw,40px);}
+  .perf-cards{grid-template-columns:1fr;}
+  .perf-engine-label{flex-direction:column;gap:8px;}
+}
+
+/* ==================================================
+   12. SL43 / SL63 / Maybach SL 비교 - 프리미엄 카드
+   ================================================== */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr 1.18fr;gap:clamp(20px,2.4vw,28px);align-items:stretch;}
+.cmp-card{
+  position:relative;background:var(--bg-card);border:1px solid var(--divider);
+  padding:clamp(28px,2.8vw,38px) clamp(22px,2.4vw,30px);
+  display:flex;flex-direction:column;
+  transition:transform .5s var(--ease),box-shadow .5s var(--ease);
+}
+.cmp-card:hover{transform:translateY(-4px);}
+.cmp-eyebrow{font-family:var(--serif);font-style:italic;color:var(--text-sub);font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;}
+.cmp-name{font-weight:900;font-size:clamp(22px,1.8vw,30px);margin-top:8px;margin-bottom:20px;}
+.cmp-rows{display:flex;flex-direction:column;gap:14px;flex:1;}
+.cmp-row{border-top:1px solid var(--divider);padding-top:12px;}
+.cmp-row-label{font-size:11px;letter-spacing:.14em;color:var(--accent);font-weight:700;text-transform:uppercase;margin-bottom:6px;}
+.cmp-row-value{font-size:clamp(14px,.9vw,16px);color:var(--text-main);line-height:1.65;}
+.cmp-media{aspect-ratio:4/3;overflow:hidden;background:var(--bg-alt);margin-bottom:22px;cursor:zoom-in;}
+.cmp-media img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);}
+.cmp-media:hover img{transform:scale(1.04);}
+
+.cmp-card--maybach{
+  background:linear-gradient(165deg,#FBF8F2,#F3EAD9);
+  border:1px solid rgba(160,136,104,0.5);
+  transform:scale(1.045);
+  box-shadow:0 0 0 1px rgba(160,136,104,0.15),0 30px 70px -20px var(--glow),0 0 90px -30px var(--glow);
+}
+.cmp-card--maybach:hover{transform:scale(1.045) translateY(-4px);}
+.cmp-card--maybach .cmp-name{font-size:clamp(21px,2vw,27px);}
+.cmp-badge{
+  position:absolute;top:-15px;left:50%;transform:translateX(-50%);
+  background:var(--charcoal);color:#F3EFE7;
+  font-family:var(--serif);font-style:italic;font-size:12.5px;letter-spacing:.14em;
+  padding:8px 22px;white-space:nowrap;
+  box-shadow:0 10px 24px rgba(0,0,0,.22);
+}
+.cmp-card--maybach .cmp-row{border-top-color:rgba(139,115,85,0.28);}
+.cmp-card--maybach .cmp-row-value{font-weight:600;}
+
+@media (max-width:980px){
+  .compare-grid{grid-template-columns:1fr;}
+  .cmp-card--maybach{transform:none;order:-1;}
+  .cmp-card--maybach:hover{transform:translateY(-4px);}
+}
+
+.lightbox-caption{position:absolute;left:0;right:0;bottom:max(20px, env(safe-area-inset-bottom));text-align:center;color:rgba(255,255,255,.92);font-family:var(--serif);font-style:italic;font-size:15px;letter-spacing:.03em;padding:0 60px;text-shadow:0 1px 8px rgba(0,0,0,.4);}
+
+/* ==================================================
+   13-2. Signature Design / Interior - 상세 설명 가치 카드
+   ================================================== */
+.detail-values{display:grid;grid-template-columns:1fr;gap:clamp(12px,1.4vw,20px);}
+@media (min-width:1024px){
+  .detail-values{grid-template-columns:repeat(3,1fr);}
+}
+@media (min-width:768px) and (max-width:1023px) and (orientation:landscape){
+  .detail-values{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
+}
+.detail-value-card{
+  background:#fffdf9;border:1px solid rgba(30,25,20,.12);
+  padding:clamp(20px,2vw,28px);
+  box-shadow:0 8px 26px rgba(23,22,20,.05);
+}
+.detail-value-num{font-family:var(--serif);font-style:italic;color:var(--accent);font-size:15px;margin-bottom:8px;}
+.detail-value-title{font-weight:700;font-size:clamp(14px,1vw,15px);color:var(--accent);margin-bottom:10px;text-transform:uppercase;letter-spacing:.03em;}
+.detail-value-text{font-size:clamp(14.5px,1vw,17px);line-height:1.7;color:var(--text-main);}
+
+/* Interior 전용: 값 카드 1개를 넓은 Highlight 카드로 */
+.detail-value-highlight{
+  background:linear-gradient(135deg,#F3EAD9,#FBF8F2);
+  border-left:3px solid var(--accent);
+  padding:clamp(20px,2vw,28px);
+}
+.detail-value-highlight .detail-value-title{margin-bottom:10px;}
+.detail-value-highlight .detail-value-text{font-size:clamp(15px,1.05vw,17.5px);}
+
+@media (min-width:1600px){
+  .detail-value-text{font-size:17px;}
+}
+
+/* ==================================================
+   13-3. Interior 하단 - 통합 기본 사양 (편의/안전 탭)
+   ================================================== */
+.eq-sub{margin-top:clamp(30px,3vw,48px);}
+.eq-sub-head{max-width:640px;margin-bottom:clamp(24px,2.8vw,34px);}
+.eq-sub-eyebrow{font-family:var(--serif);font-style:italic;color:var(--accent);font-size:13px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px;}
+.eq-sub-title{font-weight:800;font-size:clamp(22px,2vw,32px);line-height:1.3;}
+.eq-sub-desc{margin-top:10px;color:var(--text-sub);font-size:clamp(14px,.95vw,17px);line-height:1.7;}
+
+.eq-tabs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:clamp(20px,2.2vw,28px);}
+.eq-tab{
+  position:relative;padding:16px 14px;min-height:44px;
+  border:1px solid var(--divider);background:var(--bg-main);color:var(--text-main);
+  text-align:center;transition:background .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease);
+}
+.eq-tab-en{display:block;font-family:var(--serif);font-style:italic;font-size:11px;letter-spacing:.14em;opacity:.75;margin-bottom:4px;}
+.eq-tab-kr{display:block;font-weight:700;font-size:14.5px;}
+.eq-tab[aria-selected="true"]{background:var(--charcoal);color:#F3EFE7;border-color:var(--charcoal);}
+.eq-tab[aria-selected="true"]::after{content:'';position:absolute;left:50%;bottom:-1px;transform:translateX(-50%);width:44px;height:2px;background:var(--accent);}
+.eq-tab:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+
+.eq-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--divider);border:1px solid var(--divider);opacity:0;transition:opacity 180ms ease;}
+.eq-grid.is-visible{opacity:1;}
+.eq-item{background:var(--bg-card);padding:clamp(18px,1.6vw,28px) clamp(16px,1.5vw,24px);display:flex;align-items:flex-start;gap:14px;}
+.eq-icon{flex:none;width:clamp(30px,2vw,36px);height:clamp(30px,2vw,36px);color:var(--accent);}
+.eq-icon svg{width:100%;height:100%;}
+.eq-text{min-width:0;}
+.eq-name{font-weight:700;font-size:clamp(14px,.95vw,16.5px);margin-bottom:4px;}
+.eq-desc{font-size:clamp(12.5px,.82vw,14.5px);color:var(--text-sub);line-height:1.58;}
+
+@media (min-width:768px) and (max-width:1023px){.eq-grid{grid-template-columns:repeat(3,1fr);}}
+@media (min-width:768px) and (max-width:1023px) and (orientation:portrait){.eq-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:767px){.eq-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:560px){.eq-grid{grid-template-columns:1fr;}}
+
+/* ==================================================
+   13-4. Technology - 3대 핵심 기술 프리미엄 쇼케이스 (영상/이미지 지원)
+   ================================================== */
+.tech-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.4vw,20px);}
+.tech-card{
+  position:relative;overflow:hidden;aspect-ratio:16/10;background:var(--charcoal);cursor:pointer;
+  border:2px solid transparent;box-shadow:0 10px 24px rgba(23,22,20,0.10);
+  transition:border-color .35s var(--ease),box-shadow .35s var(--ease),transform .35s var(--ease);
+}
+.tech-card.active{border-color:var(--accent);box-shadow:0 18px 38px rgba(23,22,20,0.18);transform:translateY(-2px);}
+.tech-card img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease);}
+.tech-card:hover img{transform:scale(1.06);}
+.tech-card-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,14,12,0) 40%,rgba(15,14,12,.82) 100%);}
+.tech-card-name{position:absolute;left:0;right:0;bottom:0;padding:clamp(16px,1.6vw,22px);color:#fff;font-weight:700;font-size:clamp(15px,1.4vw,18px);letter-spacing:.02em;line-height:1.35;}
+.tech-play-badge{
+  position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:50%;
+  background:rgba(23,22,20,0.55);display:flex;align-items:center;justify-content:center;
+  backdrop-filter:blur(2px);
+}
+.tech-play-badge svg{width:12px;height:12px;fill:#F3EFE7;margin-left:1px;}
+
+.tech-stage{
+  margin-top:clamp(24px,2.6vw,32px);display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(24px,3vw,44px);
+  align-items:center;background:var(--bg-card);border:1px solid var(--divider);padding:clamp(20px,2vw,32px);min-height:280px;
+}
+.tech-stage-media{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--bg-alt);}
+.tech-media-video,.tech-media-image{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  opacity:0;transition:opacity 220ms cubic-bezier(.22,.61,.36,1);pointer-events:none;
+}
+.tech-media-video.is-visible,.tech-media-image.is-visible{opacity:1;pointer-events:auto;}
+.tech-video-controls{
+  position:absolute;right:12px;bottom:12px;z-index:2;display:none;gap:8px;
+}
+.tech-stage-media.has-video .tech-video-controls{display:flex;}
+.tech-ctrl{
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(23,22,20,0.58);color:#F3EFE7;display:flex;align-items:center;justify-content:center;
+  transition:background .25s var(--ease);
+}
+.tech-ctrl:hover{background:rgba(23,22,20,0.78);}
+.tech-ctrl svg{width:14px;height:14px;fill:#F3EFE7;}
+.tech-stage-eyebrow{font-family:var(--serif);font-style:italic;color:var(--accent);font-size:13px;letter-spacing:.16em;text-transform:uppercase;}
+.tech-stage-title{font-weight:800;font-size:clamp(21px,2.1vw,28px);margin-top:10px;margin-bottom:10px;}
+.tech-stage-tagline{font-family:var(--serif);font-style:italic;font-weight:600;color:var(--accent);font-size:clamp(15px,1.4vw,18px);line-height:1.55;margin-bottom:16px;}
+.tech-stage-desc{color:var(--text-sub);font-size:14.5px;line-height:1.7;}
+.tech-stage-feats{margin-top:18px;display:flex;flex-wrap:wrap;gap:10px;}
+.tech-feat{font-size:12px;font-weight:700;letter-spacing:.03em;padding:7px 14px;border:1px solid var(--divider);color:var(--text-sub);}
+
+@media (max-width:1023px){
+  .tech-stage{grid-template-columns:minmax(0,1.2fr) minmax(300px,1fr);gap:clamp(20px,2.6vw,32px);}
+}
+@media (min-width:1024px){
+  .tech-stage{grid-template-columns:minmax(0,1.45fr) minmax(360px,.8fr);}
+}
+/* 아이패드 가로: 카드 3열 유지 (글자·터치 영역이 부족해지면 2+1로 자동 줄바꿈) */
+@media (min-width:768px) and (max-width:1023px) and (orientation:landscape){
+  .tech-grid{grid-template-columns:repeat(3,minmax(220px,1fr));}
+}
+/* 아이패드 세로: 카드 1열 대형, Stage는 세로 1열 */
+@media (max-width:1023px) and (orientation:portrait){
+  .tech-grid{grid-template-columns:1fr;}
+  .tech-stage{grid-template-columns:1fr;}
+}
+/* 모바일: 카드 1열 대형, 터치 영역 44px 이상 */
+@media (max-width:767px){
+  .tech-grid{grid-template-columns:1fr;gap:16px;}
+  .tech-card{min-height:44px;}
+  .tech-stage{grid-template-columns:1fr;padding:20px;}
+  .tech-ctrl{width:38px;height:38px;}
+}
+
+/* ==================================================
+   14. 푸터
+   ================================================== */
+.site-footer{background:var(--footer-bg);color:var(--footer-text);padding-block:56px 30px;}
+.footer-brand{font-family:var(--serif);font-size:20px;letter-spacing:.04em;margin-bottom:18px;}
+.footer-note{font-size:13.5px;line-height:1.9;color:rgba(243,239,231,.82);max-width:640px;padding-bottom:26px;border-bottom:1px solid rgba(243,239,231,0.14);}
+.footer-bottom{padding-top:20px;font-size:12.5px;color:rgba(243,239,231,.6);line-height:1.9;}
+
+/* ==================================================
+   15. 이미지 확대 모달 + placeholder + 유틸
+   ================================================== */
+.lightbox{position:fixed;inset:0;z-index:2000;background:rgba(15,14,12,0.86);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s ease;padding:max(24px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left));}
+.lightbox.open{opacity:1;visibility:visible;}
+.lightbox img{max-width:90vw;max-height:88vh;object-fit:contain;box-shadow:0 30px 80px rgba(0,0,0,.4);}
+.lightbox-close{position:absolute;top:22px;right:22px;width:48px;height:48px;border:1px solid rgba(255,255,255,.4);border-radius:50%;color:#fff;font-size:22px;display:flex;align-items:center;justify-content:center;}
+@media (max-width:767px){.lightbox img{max-width:96vw;max-height:82vh;}}
+
+.img-placeholder{width:100%;height:100%;min-height:120px;display:flex;align-items:center;justify-content:center;color:var(--text-sub);font-size:13px;letter-spacing:.03em;text-align:center;padding:12px;background:var(--bg-card);}
+
+.skip-link{position:absolute;left:-999px;top:0;background:#fff;color:#000;padding:10px 16px;z-index:3000;}
+.skip-link:focus{left:12px;top:12px;}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+
+/* ==================================================
+   16. Fluid Responsive 화면 크기별 밀도 조정
+   (기존 clamp() 기반 fluid 값 위에 화면대별 미세 조정을 얹는다 — 디자인/기능은 그대로, 크기/간격만 조정)
+   ================================================== */
+
+/* 대형 모니터 (1600px~): 콘텐츠가 화면 가운데 작게 몰리지 않도록 확대 */
+@media (min-width:1600px){
+  .wrap{width:min(92vw,1720px);}
+  .section-title{font-size:clamp(46px,2.7vw,58px);}
+  .section-desc{font-size:18px;}
+}
+
+/* 노트북 (1024~1366px): 여백을 줄이고 콘텐츠는 충분히 크게 */
+@media (min-width:1024px) and (max-width:1366px){
+  .wrap{width:calc(100% - 48px);}
+  section{padding-block:44px;}
+}
+
+/* 노트북처럼 화면 높이가 낮은 경우 상하 여백 추가 축소 */
+@media (min-width:1024px) and (max-height:800px){
+  section{padding-block:38px;}
+  .section-head{margin-bottom:22px;}
+}
+
+/* 아이패드 가로 (768~1023px landscape) */
+@media (min-width:768px) and (max-width:1023px) and (orientation:landscape){
+  .wrap{width:calc(100% - 40px);}
+  section{padding-block:44px;}
+  .section-title{font-size:36px;}
+  .section-desc{font-size:16px;}
+}
+
+/* 아이패드 세로 (768~1023px portrait) */
+@media (min-width:768px) and (max-width:1023px) and (orientation:portrait){
+  .wrap{width:calc(100% - 40px);}
+  section{padding-block:42px;}
+  .section-title{font-size:34px;}
+  .section-desc{font-size:16px;}
+}
+
+/* 모바일 (~767px) */
+@media (max-width:767px){
+  .wrap{width:calc(100% - 28px);}
+  section{padding-block:34px;}
+  .section-head{margin-bottom:22px;}
+  .section-title{font-size:clamp(28px,8vw,36px);}
+  .section-desc{font-size:15px;}
+}
+
+/* 작은 모바일 (~480px) */
+@media (max-width:480px){
+  .wrap{width:calc(100% - 24px);}
+  section{padding-block:30px;}
+  .experience-grid,.tech-grid,.compare-grid{gap:10px;}
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">본문 바로가기</a>
+
+<header class="site-header" id="siteHeader">
+  <div class="nav-inner">
+    <a href="#top" class="brand-logo" aria-label="Mercedes-Maybach SL 680 Monogram Series 상단으로 이동">Mercedes-Maybach<span class="sub eng">SL 680</span></a>
+    <nav class="nav-menu" aria-label="주요 메뉴">
+      <a href="#experience">EXPERIENCE</a>
+      <a href="#design">DESIGN</a>
+      <a href="#performance">PERFORMANCE</a>
+      <a href="#compare">COMPARE</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#experience">EXPERIENCE</a></li>
+      <li><a href="#design">DESIGN</a></li>
+      <li><a href="#performance">PERFORMANCE</a></li>
+      <li><a href="#compare">COMPARE</a></li>
+    </ul>
+  </div>
+</header>
+<div class="nav-scrim" id="navScrim"></div>
+
+<main id="main">
+
+<!-- ==================================================
+     Hero
+     ================================================== -->
+<section class="hero" id="top">
+  <div class="hero-media reveal-img" id="heroMedia"></div>
+  <div class="wrap hero-content">
+    <div class="hero-copy">
+      <p class="hero-eyebrow eng">Mercedes-Maybach</p>
+      <h1 class="hero-title">Mercedes-Maybach<br>SL 680 Monogram Series</h1>
+      <p class="hero-sub eng">Open Air. Beyond Luxury.</p>
+    </div>
+  </div>
+  <div class="scroll-cue" aria-hidden="true">
+    <span class="eng">Scroll</span>
+    <div class="line"></div>
+  </div>
+</section>
+
+<!-- ==================================================
+     Why Maybach SL
+     ================================================== -->
+<section class="why-section" id="why" aria-labelledby="whyTitle">
+  <div class="wrap why-stage">
+    <p class="why-line reveal">오픈카는 많습니다.</p>
+    <p class="why-line reveal">빠른 자동차도 많습니다.</p>
+    <p class="why-line strong reveal" id="whyTitle">하지만 우아함까지 갖춘 오픈카는<br><span class="eng">Mercedes-Maybach SL 680 Monogram Series</span>뿐입니다.</p>
+    <div class="why-media reveal-img" id="whyMedia"></div>
+  </div>
+</section>
+
+<!-- ==================================================
+     Maybach Experience
+     ================================================== -->
+<section class="section-alt" id="experience" aria-labelledby="expTitle">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow eng">Maybach Experience</p>
+      <h2 class="section-title" id="expTitle">SL 680 Monogram Series<br>오너의 하루</h2>
+      <p class="section-desc">스펙이 아니라, 하루를 이야기합니다. 새벽부터 노을까지 — SL 680 Monogram Series와 함께하는 시간의 결.</p>
+    </div>
+    <div class="experience-grid" id="experienceGrid"></div>
+  </div>
+</section>
+
+<!-- ==================================================
+     Signature Design (탭 전환형 이미지 쇼케이스)
+     ================================================== -->
+<section id="design" aria-labelledby="signatureTitle">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow eng">Signature Design</p>
+      <h2 class="section-title" id="signatureTitle">마이바흐를 완성하는<br>디테일</h2>
+      <p class="section-desc">탭을 선택해 SL 680 Monogram Series만의 시그니처 디자인 요소와, 그 디테일이 만드는 가치를 확인해 보세요.</p>
+    </div>
+    <div class="signature-stage reveal-img" id="signatureStage"></div>
+    <div class="sig-tabs reveal" id="sigTabs" role="tablist" aria-label="Signature Design 디테일 선택"></div>
+    <div class="detail-panel reveal" id="sigPanel" role="tabpanel"></div>
+  </div>
+</section>
+
+<!-- ==================================================
+     Interior
+     ================================================== -->
+<section class="section-alt" id="interior" aria-labelledby="interiorTitle">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow eng">Interior</p>
+      <h2 class="section-title" id="interiorTitle">고요함 속의<br>정교함</h2>
+      <p class="section-desc">옵션을 선택해 SL 680 Monogram Series 인테리어의 실제 모습과 디테일을 확인해 보세요.</p>
+    </div>
+    <div class="showcase-stage reveal-img" id="interiorStage"></div>
+    <div class="sig-tabs reveal" id="intTabs" role="tablist" aria-label="Interior 옵션 선택"></div>
+    <div class="detail-panel reveal" id="intPanel" role="tabpanel"></div>
+    <div class="eq-sub" id="eqSub">
+      <div class="eq-sub-head reveal">
+        <p class="eq-sub-eyebrow eng">Standard Equipment</p>
+        <h3 class="eq-sub-title">Mercedes-Maybach SL 680 Monogram Series<br>기본 사양</h3>
+        <p class="eq-sub-desc">일상의 편안함부터 주행의 안전까지, SL 680 Monogram Series에 기본으로 갖춰진 주요 사양을 확인해 보세요.</p>
+      </div>
+      <div class="eq-tabs reveal" id="eqTabs" role="tablist" aria-label="기본 사양 카테고리"></div>
+      <div class="eq-grid" id="eqGrid" role="tabpanel"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================================================
+     Technology (신규 - Apple 스타일 대형 카드)
+     ================================================== -->
+<section id="technology" aria-labelledby="technologyTitle">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow eng">Technology</p>
+      <h2 class="section-title" id="technologyTitle">마이바흐를 움직이는<br>기술</h2>
+      <p class="section-desc">Mercedes-Maybach SL 680 Monogram Series를 특별하게 만드는 세 가지 핵심 기술을 움직임으로 경험해 보세요.</p>
+    </div>
+    <div class="tech-grid" id="techGrid"></div>
+    <div class="tech-stage reveal" id="techStage"></div>
+  </div>
+</section>
+
+<!-- ==================================================
+     Performance
+     ================================================== -->
+<section class="section-alt" id="performance" aria-labelledby="performanceTitle">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow eng">Performance</p>
+      <h2 class="section-title" id="performanceTitle">숫자가 아니라<br>감각으로 증명합니다</h2>
+    </div>
+    <div class="perf-engine-media reveal-img" id="perfMedia"></div>
+    <div class="perf-stats reveal" id="perfStats"></div>
+    <div class="perf-cards reveal" id="perfCards"></div>
+  </div>
+</section>
+
+<!-- ==================================================
+     SL43 / SL63 / SL 680 Monogram Series 비교
+     ================================================== -->
+<section id="compare" aria-labelledby="compareTitle">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <p class="eyebrow eng">Three Characters, One Family</p>
+      <h2 class="section-title" id="compareTitle">같은 SL, 다른 성격</h2>
+      <p class="section-desc">SL43, SL63, 그리고 Mercedes-Maybach SL 680 Monogram Series. 세 대의 오픈카는 저마다 다른 방식으로 완성됩니다.</p>
+    </div>
+    <div class="compare-grid" id="compareGrid"></div>
+  </div>
+</section>
+
+</main>
+
+<!-- ==================================================
+     Ending Hero
+     ================================================== -->
+<section class="hero ending-hero" id="ending">
+  <div class="hero-media reveal-img" id="endingMedia"></div>
+  <div class="wrap hero-content">
+    <div class="hero-copy">
+      <p class="hero-eyebrow eng">Mercedes-Maybach</p>
+      <h1 class="hero-title">Luxury<br>Without Compromise</h1>
+      <p class="hero-sub eng">Mercedes-Maybach<br>SL 680 Monogram Series</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="footer-brand">Mercedes-Maybach</p>
+    <p class="footer-note">
+      본 페이지의 이미지와 차량 정보는 실제 판매 차량과 다를 수 있으며,<br>
+      모델, 사양 및 제공 여부는 시장 상황에 따라 변경될 수 있습니다.
+    </p>
+    <p class="footer-bottom">&copy; <span id="copyYear"></span> Mercedes-Maybach Showcase. All rights reserved.</p>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="이미지 확대 보기" aria-hidden="true">
+  <button class="lightbox-close" id="lightboxClose" aria-label="이미지 확대 닫기">&times;</button>
+  <img id="lightboxImg" src="" alt="">
+  <p class="lightbox-caption" id="lightboxCaption"></p>
+</div>
+
+<script>
+/* =====================================================
+   ★★★ 이곳에 이미지 주소만 입력하세요 ★★★
+   URL(https://...) 또는 images/파일명.jpg 형태로 입력합니다.
+   비워두면 자동으로 안내 placeholder가 표시되며 레이아웃은 깨지지 않습니다.
+   ===================================================== */
+const IMAGE_LINKS = {
+  /* 히어로: 풀스크린, 가장 아름다운 마이바흐 SL 이미지 */
+  hero: "https://github.com/JNOHJINGYU/images/blob/main/24C0284_90.jpg?raw=true",
+  /* 엔딩 히어로: 해안도로/노을 배경의 대형 차량 이미지 */
+  ending: "",
+
+  /* Why Maybach SL: 큰 여백 아래 넓은 이미지 한 장 */
+  why: "https://github.com/JNOHJINGYU/images/blob/main/25C0123_025.jpg?raw=true",
+
+  /* Maybach Experience 4장 */
+  expSunrise: "https://github.com/JNOHJINGYU/images/blob/main/Gemini_Generated_Image_ov4tlaov4tlaov4t.png?raw=true",     /* ① 새벽 해안도로, 루프 오픈 */
+  expOpenAir: "https://github.com/JNOHJINGYU/images/blob/main/Gemini_Generated_Image_wl1k14wl1k14wl1k.png?raw=true",     /* ② 오픈된 루프, 리조트 */
+  expHandcrafted: "https://github.com/JNOHJINGYU/images/blob/main/25C0123_010.jpg?raw=true", /* ③ 나파가죽/크롬/마이바흐 엠블럼 클로즈업 */
+  expSunset: "https://github.com/JNOHJINGYU/images/blob/main/Gemini_Generated_Image_19wxfc19wxfc19wx.png?raw=true",      /* ④ 노을, 요트, 호텔 */
+
+  /* Signature Design: '전체 보기' 탭의 기본 이미지 — ★ 반드시 측면(사이드 프로필) 이미지를 넣어주세요 */
+  signatureOverview: "https://github.com/JNOHJINGYU/images/blob/main/MAYBARH_SL_HOT.png?raw=true",
+  /* Signature Design: 탭별 확대 이미지 (탭 클릭 시 메인 이미지가 아래 사진으로 교체됩니다) */
+  signatureGrille: "https://github.com/JNOHJINGYU/images/blob/main/MAYBARH_SL_GRILL.jpg?raw=true",   /* ① 그릴이 화면 중심에 크게 보이는 정면 이미지 */
+  signatureChrome: "https://github.com/JNOHJINGYU/images/blob/main/MAYBARH_SL_MOL.jpg?raw=true",   /* ② 사이드 크롬 몰딩/펜더 디테일이 크게 보이는 이미지 */
+  signatureWheel: "https://github.com/JNOHJINGYU/images/blob/main/MAYBARH_SL_WILL.jpg?raw=true",    /* ③ 21인치 휠이 화면 대부분을 차지하는 확대 이미지 */
+  signatureHood: "https://github.com/JNOHJINGYU/images/blob/main/MAYBARH_SL_BONIT.jpg?raw=true",     /* ④ MAYBACH 보닛 패턴이 잘 보이는 상단 각도 이미지 */
+  signatureSofttop: "https://github.com/JNOHJINGYU/images/blob/main/MAYBARH_SL_TOP.jpg?raw=true",  /* ⑤ 소프트탑 패턴이 잘 보이는 확대 이미지 */
+  signatureRear: "https://github.com/JNOHJINGYU/images/blob/main/MAYBARH_SL_TAIL.jpg?raw=true",     /* ⑥ 테일램프가 잘 보이는 후면 전체 이미지 */
+
+  /* Interior: 전체 + 옵션별 이미지 */
+  interiorOverview: "https://github.com/JNOHJINGYU/images/blob/main/MAYABRH_SL_INT.jpg?raw=true",   /* 인테리어 전체 이미지 */
+  interiorNappa: "https://github.com/JNOHJINGYU/images/blob/main/MAYBARH_SL_NAPPA.jpg?raw=true",      /* 나파가죽 시트, 퀼팅, 천공/스티치가 잘 보이는 이미지 */
+  interiorBurmester: "https://github.com/JNOHJINGYU/images/blob/main/MAYBARH_SL_BURME.jpg?raw=true",  /* Burmester 스피커 그릴과 실내 배치 */
+  interiorAmbient: "https://github.com/JNOHJINGYU/images/blob/main/MAYBARH_SL_AMBI.png?raw=true",    /* 앰비언트 라이트가 켜진 실내 */
+  interiorMbux: "https://github.com/JNOHJINGYU/images/blob/main/MAYBARH_SL_MBUX.jpg?raw=true",       /* 센터 디스플레이, 계기판, MBUX 화면 */
+  interiorSeat: "https://github.com/JNOHJINGYU/images/blob/main/MAYBARH_SL_SEAT.jpg?raw=true",       /* 시트 전체, 헤드레스트, 착좌부 */
+  interiorAirscarf: "https://github.com/JNOHJINGYU/images/blob/main/MAYBARH_SL_AIR.jpg?raw=true",   /* 헤드레스트 하단 AIRSCARF 송풍구 확대 */
+  interiorSteering: "https://github.com/JNOHJINGYU/images/blob/main/MAYBARH_SL_STEERING.jpg?raw=true",   /* MAYBACH 전용 스티어링 휠 */
+  interiorTrim: "https://github.com/JNOHJINGYU/images/blob/main/MAYBARH_SL_TRIM.jpg?raw=true",       /* 크롬/우드 등 전용 인테리어 트림 디테일 */
+
+  /* Performance: 우측 이미지와 짝을 이루는 주행 이미지 */
+  performance: "https://github.com/JNOHJINGYU/images/blob/main/Mercedes-Benz-SL_Monogram_Maybach-2025-1280-e5706659e833756daab0dab58dc9fec6cc.jpg?raw=true",
+
+  /* 비교 카드 3장 */
+  compareSL43: "https://github.com/JNOHJINGYU/images/blob/main/Mercedes-Benz-SL_43_AMG-2023-1280-0ac950c13c6a6879cd16eb4e5020b02823.jpg?raw=true",
+  compareSL63: "https://github.com/JNOHJINGYU/images/blob/main/Mercedes-Benz-SL_63_AMG-2022-1280-f1c558a630c3c0d4568b477b309bb971e6.jpg?raw=true",
+  compareMaybachSL: "https://github.com/JNOHJINGYU/images/blob/main/Mercedes-Benz-SL_Monogram_Maybach-2025-1280-31abdefd5c5d3594f38cee5e50a2fb32cb.jpg?raw=true",
+
+  /* Technology 3장 (핵심 기술 카드 썸네일 + 상세 스테이지 공용) */
+  techDigitalLight: "https://github.com/JNOHJINGYU/images/blob/main/digitallight.jpg?raw=true",
+  techRearSteer: "https://github.com/JNOHJINGYU/images/blob/main/MAYBARH_SL_REARAXLE.JPG?raw=true",
+  techActiveRide: "https://github.com/JNOHJINGYU/images/blob/main/Gemini_Generated_Image_qaa2x0qaa2x0qaa2.png?raw=true",
+};
+
+/* ==================================================
+   Technology 전용 동영상 링크 (선택 사항)
+   비워두면 자동으로 이미지(IMAGE_LINKS의 tech* 항목)로 대체 표시됩니다.
+   GitHub raw MP4 / CDN MP4 / 직접 호스팅 MP4 등 <video src>로 재생 가능한 주소를 사용하세요.
+   페이지 진입 시 3개를 한꺼번에 미리 불러오지 않고, 선택된 영상만 그때그때 불러옵니다.
+   ================================================== */
+const VIDEO_LINKS = {
+  techDigitalLight: "https://pub-4d0cdee0f05f468bb8bca2d3a0210ccc.r2.dev/D603778_web_1080p.mp4",
+  techRearSteer: "https://pub-4d0cdee0f05f468bb8bca2d3a0210ccc.r2.dev/New%20Mercedes%20S-Class%20-%20Rear-wheel%20Steering.mp4",
+  techActiveRide: "https://pub-4d0cdee0f05f468bb8bca2d3a0210ccc.r2.dev/MAYBARH_SL600_ACTIVE%20RIDE.mp4",
+};
+
+/* Signature Design·Interior: 초기 노출 가능성이 높은 이미지만 <link rel="preload">로 우선 힌트를 준다.
+   나머지는 각 섹션의 preload*Images()가 JS Image 객체로 백그라운드 사전 로딩한다. */
+(function preloadKeyLinkHints(){
+  ['signatureOverview', 'signatureGrille', 'interiorOverview', 'interiorNappa'].forEach(key => {
+    const src = IMAGE_LINKS[key];
+    if(!src) return;
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.as = 'image';
+    link.href = src;
+    document.head.appendChild(link);
+  });
+})();
+
+/* ==================================================
+   공통 아이콘 세트 (Interior 기본사양 / Standard Equipment 그리드에서 재사용)
+   ================================================== */
+const ICONS = {
+  seat:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M7 21V11a3 3 0 013-3h1a3 3 0 013 3v3h2a2 2 0 012 2v5"/><path d="M7 14h9"/></svg>',
+  sound:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.4"/></svg>',
+  screen:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="5" width="18" height="12" rx="1"/><path d="M8 21h8"/></svg>',
+  connect:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 12a8 8 0 0116 0"/><path d="M7.5 12a4.5 4.5 0 019 0"/><circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/></svg>',
+  camera:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="7" width="18" height="12" rx="2"/><circle cx="12" cy="13" r="3.3"/><path d="M8 7l1.6-2.4h4.8L16 7"/></svg>',
+  light:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="10" r="5"/><path d="M12 17v3M9 21h6"/></svg>',
+  key:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="12" r="4"/><path d="M12 12h9M17 12v3M20 12v3"/></svg>',
+  steering:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/><path d="M12 4v4M6.5 16l3.6-2.4M17.5 16l-3.6-2.4"/></svg>',
+  climate:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 3v18M4.5 7l15 10M19.5 7l-15 10"/></svg>',
+  roof:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 15c2-6 6-9 9-9s7 3 9 9"/><path d="M3 15h18"/></svg>',
+  shield:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6l7-3z"/></svg>',
+};
+function iconMarkup(type){ return ICONS[type] || ICONS.shield; }
+
+/* ==================================================
+   Maybach Experience 데이터
+   ================================================== */
+const EXPERIENCE_DATA = [
+  { num:"01 · Sunrise Drive", title:"Sunrise Drive", quote:"하루가 가장 아름다운 순간은\n누군가보다 먼저 달리기 시작할 때.", imgKey:"expSunrise" },
+  { num:"02 · Open Air Luxury", title:"Open Air Luxury", quote:"오픈 에어링은 단순히 지붕을 여는 것이 아니라\n세상을 더 가까이 느끼는 방식입니다.", imgKey:"expOpenAir" },
+  { num:"03 · Handcrafted Details", title:"Handcrafted Details", quote:"장인의 손길은 설명이 아니라\n직접 만졌을 때 느껴집니다.", imgKey:"expHandcrafted" },
+  { num:"04 · Sunset Escape", title:"Sunset Escape", quote:"목적지보다\n그곳으로 향하는 시간이\n더 특별한 자동차.", imgKey:"expSunset" },
+];
+
+/* ==================================================
+   Signature Design 탭 데이터 (핫스팟 없음 - 하단 탭으로만 이미지 전환)
+   imageKey = 탭 클릭 시 메인 이미지가 교체될 사진 (IMAGE_LINKS 참조)
+   fit = 이 이미지에 적용할 object-fit ("cover" | "contain")
+   position = object-position 값 (예: "center center", "center top", "30% 60%")
+   ratio = 이 탭의 프레임 가로/세로 비율 (예: "16/9", "3/2") - 탭마다 다르게 지정 가능
+   ================================================== */
+const SIGNATURE_TABS = [
+  { id:"overview", eyebrow:"Overview", label:"전체 보기", title:"Mercedes-Maybach SL 680 Monogram Series", imageKey:"signatureOverview", fit:"cover", position:"center center", ratio:"16/9",
+    description:"측면에서 바라본 실루엣 하나로도 SL 680 Monogram Series는 다른 로드스터와 구별됩니다. 길게 뻗은 보닛과 낮고 우아한 루프라인이 만드는 균형입니다.",
+    difference:"AMG SL의 다이내믹한 프로포션과 달리, SL 680 Monogram Series는 여유로운 비례와 절제된 라인으로 완성되었습니다.",
+    atmosphere:"차량 전체에서 스포츠보다 품격이 먼저 느껴지는 인상을 전합니다.",
+    ownerValue:"탭을 선택해 SL 680 Monogram Series를 완성하는 디테일을 하나씩 확인해 보세요." },
+  { id:"grille", eyebrow:"Front", label:"MAYBACH 전용 그릴", title:"정면에서 시작되는 마이바흐의 존재감", imageKey:"signatureGrille", fit:"cover", position:"center center", ratio:"16/9",
+    description:"세로형 크롬 바를 정교하게 배열한 MAYBACH 전용 그릴은 정면에서도 한눈에 구별되는 독보적인 존재감을 완성합니다.",
+    difference:"AMG의 공격적인 파나메리카나 그릴과 달리 스포츠보다 품격과 우아함을 강조합니다.",
+    atmosphere:"정면에서부터 최고급 럭셔리 로드스터라는 인상을 전달합니다.",
+    ownerValue:"멀리서도 다른 SL과 구별되는 독보적인 존재감을 제공합니다." },
+  { id:"chrome", eyebrow:"Detail", label:"크롬 디테일", title:"빛으로 완성하는 우아함", imageKey:"signatureChrome", fit:"cover", position:"center center", ratio:"16/9",
+    description:"보닛 라인과 사이드 실을 따라 흐르는 크롬 디테일은 빛의 각도에 따라 표정을 달리하며 차체 전체의 우아함을 완성합니다.",
+    difference:"AMG의 무광·다크 크롬 대비, 밝고 정제된 톤으로 스포츠보다 품격을 강조합니다.",
+    atmosphere:"빛에 따라 달라지는 표정이 차량에 생동감을 더합니다.",
+    ownerValue:"움직이지 않아도 시선을 붙잡는 디테일을 소유합니다." },
+  { id:"wheel", eyebrow:"Wheel", label:"마이바흐 전용 휠", title:"정차 중에도 느껴지는 조형미", imageKey:"signatureWheel", fit:"cover", position:"center center", ratio:"3/2",
+    description:"멀티 스포크 디자인의 마이바흐 전용 21인치 휠은 정적인 순간에도 움직임을 느끼게 하는 조형미를 담고 있습니다.",
+    difference:"AMG 휠의 공격적인 형상과 달리, 우아한 곡선의 스포크로 설계되었습니다.",
+    atmosphere:"정차 중에도 세련된 존재감을 유지합니다.",
+    ownerValue:"디테일까지 다르다는 확신을 손끝이 아닌 눈으로 느낍니다." },
+  { id:"hood", eyebrow:"Bonnet", label:"MAYBACH 전용 보닛", title:"비례가 만드는 다이나믹한 실루엣", imageKey:"signatureHood", fit:"cover", position:"center center", ratio:"16/9",
+    description:"길게 뻗은 보닛 라인은 앞좌석까지 이어지는 균형 잡힌 비례를 완성하며 로드스터 특유의 다이나믹한 실루엣을 만듭니다.",
+    difference:"보닛 라인에 새겨진 전용 패턴은 AMG 라인업에는 존재하지 않는 마이바흐만의 요소입니다.",
+    atmosphere:"차체 전체의 비례를 한층 길고 우아하게 보이게 합니다.",
+    ownerValue:"운전석에 앉기 전부터 특별함을 느끼게 합니다." },
+  { id:"softtop", eyebrow:"Roof", label:"MAYBACH 패턴 소프트탑", title:"닫혀 있어도 드러나는 정체성", imageKey:"signatureSofttop", fit:"cover", position:"center center", ratio:"16/9",
+    description:"정교하게 재단된 소프트탑은 닫혔을 때는 쿠페와 같은 우아함을, 열렸을 때는 완전한 개방감을 선사합니다.",
+    difference:"표면에 새겨진 마이바흐 시그니처 패턴은 지붕을 닫았을 때도 이 차가 마이바흐임을 알아보게 합니다.",
+    atmosphere:"닫힌 상태에서도 로드스터 특유의 날렵한 실루엣을 유지합니다.",
+    ownerValue:"지붕을 닫은 순간에도 마이바흐를 타고 있다는 자부심을 느낍니다." },
+  { id:"rear", eyebrow:"Rear", label:"후면 디자인", title:"뒤에서도 이어지는 존재감", imageKey:"signatureRear", fit:"cover", position:"center center", ratio:"16/9",
+    description:"수평으로 넓게 퍼진 리어 콤비네이션 램프와 절제된 디퓨저는 정면 못지않은 존재감을 후면에도 부여합니다.",
+    difference:"AMG의 다이내믹한 후면 대비, 절제된 라인으로 품격을 강조했습니다.",
+    atmosphere:"뒤에서 바라볼 때도 여유로운 존재감을 전합니다.",
+    ownerValue:"어느 각도에서 보아도 타협 없는 완성도를 확인합니다." },
+];
+
+/* 페이지 로드 시점부터 Signature Design 이미지를 백그라운드에서 미리 디코딩해둔다
+   (preloadSignatureImages는 아래에서 함수 선언으로 정의되지만, 함수 선언은 호이스팅되어
+   스크립트 실행 시 이 시점에 바로 호출 가능하다) */
+preloadSignatureImages();
+
+/* ==================================================
+   Interior 데이터 - 옵션별 이미지/캡션/설명/가치 (인터랙티브 이미지 쇼케이스)
+   ================================================== */
+const INTERIOR_DATA = [
+  { id:"overview", title:"Mercedes-Maybach SL 680 Monogram Series Interior", imageKey:"interiorOverview", fit:"cover", position:"center center", caption:"Interior Overview",
+    description:"아이보리 톤의 나파가죽과 은은한 조명이 어우러진 실내는, 마이바흐가 지향하는 고요하고 밝은 라운지의 분위기를 그대로 담고 있습니다.",
+    value:"문을 여는 순간부터 이 차가 다른 SL과 다르다는 것을 실내가 먼저 말해줍니다." },
+  { id:"nappa", title:"크리스탈 화이트 나파가죽", imageKey:"interiorNappa", fit:"cover", position:"center 42%", positionMobile:"center 38%", caption:"Crystal White Nappa Leather",
+    description:"부드러운 촉감의 고급 나파가죽과 정교한 퀼팅 및 천공 디테일이 마이바흐만의 고요하고 밝은 실내 분위기를 완성합니다.",
+    value:"단순한 시트 소재가 아니라 탑승하는 순간부터 최고급 라운지에 들어선 듯한 감각을 전달합니다." },
+  { id:"burmester", title:"Burmester 사운드 시스템", imageKey:"interiorBurmester", fit:"cover", position:"center center", caption:"Burmester Surround Sound System",
+    description:"정교하게 가공된 금속 스피커 그릴과 차량 내부에 최적화된 음향 설계가 선명하고 입체적인 사운드를 제공합니다.",
+    value:"루프를 열고 달리는 순간에도 음악의 디테일과 공간감을 풍부하게 전달합니다." },
+  { id:"ambient", title:"앰비언트 라이트", imageKey:"interiorAmbient", fit:"cover", position:"center center", caption:"Ambient Lighting",
+    description:"시간과 분위기에 따라 은은하게 변화하는 조명이 실내 전체에 절제된 리듬을 더합니다.",
+    value:"낮에는 존재를 드러내지 않다가, 밤이 되면 실내를 가장 우아한 공간으로 바꿔놓습니다." },
+  { id:"mbux", title:"MBUX", imageKey:"interiorMbux", fit:"cover", position:"center center", caption:"MBUX Multimedia System",
+    description:"센터 디스플레이와 디지털 계기판이 직관적인 화면 구성과 반응 속도로, 필요한 순간에만 존재감을 드러냅니다.",
+    value:"화려함을 과시하기보다, 조용히 곁에서 필요한 정보만 건네는 방식을 택했습니다." },
+  { id:"seat", title:"시트", imageKey:"interiorSeat", fit:"cover", position:"center 45%", positionMobile:"58% center", caption:"Seating",
+    description:"장시간 주행에도 편안함을 유지하는 인체공학적 설계와 마이바흐만의 세밀한 스티칭이 착좌부 전체에 이어집니다.",
+    value:"짧은 이동도, 긴 여정도 똑같이 편안하게 만드는 것이 마이바흐의 시트입니다." },
+  { id:"airscarf", title:"AIRSCARF", imageKey:"interiorAirscarf", fit:"cover", position:"center 30%", caption:"AIRSCARF Neck-Level Heating",
+    description:"헤드레스트 하단에 통합된 송풍구가 목덜미를 따뜻하게 감싸, 오픈 에어링 중에도 계절과 상관없이 쾌적함을 유지합니다.",
+    value:"루프를 여는 계절이 짧아지지 않도록, 사계절 내내 오픈 에어링을 즐길 수 있게 합니다." },
+  { id:"steering", title:"MAYBACH 전용 스티어링", imageKey:"interiorSteering", fit:"cover", position:"center center", caption:"Maybach Steering Wheel",
+    description:"마이바흐 전용 스티칭과 엠블럼이 더해진 스티어링 휠은 손끝에서부터 다른 브랜드임을 느끼게 합니다.",
+    value:"운전대를 쥐는 첫 순간부터, 이 차가 마이바흐라는 사실을 손끝으로 확인합니다." },
+  { id:"trim", title:"인테리어 트림", imageKey:"interiorTrim", fit:"cover", position:"center center", caption:"Interior Trim",
+    description:"크롬과 우드 등 마이바흐 전용으로 마감된 트림 디테일이 실내 전체에 절제된 고급스러움을 더합니다.",
+    value:"눈에 띄게 화려하지 않지만, 자세히 볼수록 완성도가 드러나는 디테일입니다." },
+];
+
+/* 페이지 로드 시점부터 Interior 이미지를 백그라운드에서 미리 디코딩해둔다 (함수 선언 호이스팅으로 즉시 호출 가능) */
+preloadInteriorImages();
+
+/* ==================================================
+   Interior 하단 - 통합 기본 사양 데이터 (편의 사양 / 안전 사양 두 그룹)
+   EQUIP_DATA + STANDARD_DATA의 중복 항목을 정리해 하나로 통합함
+   ================================================== */
+const EQUIPMENT_DATA = {
+  convenience: [
+    { icon:"seat", name:"프리미엄 나파가죽", sub:"전 좌석에 적용된 최고급 나파가죽" },
+    { icon:"climate", name:"열선 시트", sub:"앞·뒷좌석 열선 기능" },
+    { icon:"climate", name:"통풍 시트", sub:"앞좌석 통풍 기능" },
+    { icon:"seat", name:"멀티컨투어 마사지 시트", sub:"체형에 맞춘 멀티컨투어 마사지" },
+    { icon:"climate", name:"AIRSCARF", sub:"헤드레스트 통합 넥 워머" },
+    { icon:"sound", name:"Burmester 프리미엄 서라운드 사운드", sub:"고출력 프리미엄 서라운드 사운드" },
+    { icon:"screen", name:"MBUX", sub:"차세대 인포테인먼트 시스템" },
+    { icon:"screen", name:"헤드업 디스플레이", sub:"주행 정보를 시야 안에 표시" },
+    { icon:"screen", name:"T맵 내비게이션", sub:"증강현실 기반 내비게이션" },
+    { icon:"connect", name:"무선 Apple CarPlay / Android Auto", sub:"케이블 없는 스마트폰 연동" },
+    { icon:"connect", name:"스마트폰 무선 충전", sub:"센터페시아 무선 충전 패드" },
+    { icon:"connect", name:"5G 커넥티비티", sub:"고속 차량 통신" },
+    { icon:"connect", name:"Mercedes me Connect", sub:"원격 시동 · 디지털 차량 키" },
+    { icon:"light", name:"64색 앰비언트 라이트", sub:"취향에 맞춘 실내 조명" },
+    { icon:"key", name:"KEYLESS-GO", sub:"스마트키 원터치 승차" },
+    { icon:"roof", name:"전동 소프트탑", sub:"버튼 하나로 개폐되는 지붕" },
+    { icon:"seat", name:"메모리 시트", sub:"운전자별 시트 위치 저장" },
+    { icon:"steering", name:"전동 스티어링 조절", sub:"틸트 & 텔레스코픽 자동 조절" },
+    { icon:"steering", name:"스티어링 휠 열선", sub:"손끝까지 따뜻하게" },
+    { icon:"climate", name:"2존 에어컨디셔너", sub:"운전석·동승석 독립 온도 제어" },
+  ],
+  safety: [
+    { icon:"shield", name:"PRE-SAFE", sub:"사고 위험을 감지하면 탑승자를 보호하기 위한 사전 조치를 실행" },
+    { icon:"shield", name:"Active Brake Assist", sub:"충돌 위험을 감지하고 필요 시 제동을 보조" },
+    { icon:"shield", name:"ATTENTION ASSIST", sub:"운전자의 주행 패턴을 분석해 피로와 주의력 저하를 경고" },
+    { icon:"shield", name:"드라이빙 어시스턴스 패키지", sub:"차간거리·속도·차선 유지 등을 지원하는 첨단 운전자 보조 시스템" },
+    { icon:"camera", name:"Active Parking Assist", sub:"주차 공간 탐색과 주차 조작을 지원" },
+    { icon:"camera", name:"360° Surround Camera", sub:"차량 주변을 다양한 각도에서 확인할 수 있는 전방위 카메라 시스템" },
+    { icon:"light", name:"DIGITAL LIGHT", sub:"주행 환경에 따라 정교하게 빛을 제어하는 지능형 헤드램프" },
+  ],
+};
+
+/* ==================================================
+   Performance 데이터 (숫자보다 감성)
+   ================================================== */
+/* ==================================================
+   Performance - 감성 중심 Driving Character 카드 (4MATIC 제외 5개)
+   ================================================== */
+const PERFORMANCE_DATA = [
+  { key:"V8", title:"강력함보다 여유로운 가속감", desc:"585마력의 출력은 단순히 빠르기 위한 것이 아니라, 언제든 부드럽고 즉각적으로 힘을 꺼내 쓰기 위한 여유를 제공합니다." },
+  { key:"Ride Comfort", title:"노면을 지우듯 지나가는 부드러움", desc:"거친 노면 위에서도 흐트러지지 않는 부드러움이 마이바흐 특유의 여유로운 승차감을 완성합니다." },
+  { key:"Silence", title:"오픈카에서도 유지되는 고요함", desc:"바람과 도로 소음을 정교하게 걸러낸 실내는 오픈 에어링 중에도 고요함을 지켜줍니다." },
+  { key:"Rear Steering", title:"큰 차체를 더 작게 느끼게 하는 민첩함", desc:"저속에서는 회전 반경을 줄이고, 고속에서는 안정감을 더해 큰 차체를 가볍게 다룰 수 있게 합니다." },
+  { key:"Suspension", title:"긴장감과 편안함 사이의 정교한 균형", desc:"긴장과 이완을 스스로 조율하는 유연한 움직임이 스포츠성과 편안함을 동시에 만족시킵니다." },
+];
+
+/* ==================================================
+   Performance 핵심 스펙 4개 (숫자는 변경하지 않음)
+   ================================================== */
+const PERF_STATS = [
+  { num:"585", unit:"PS", label:"최고출력" },
+  { num:"81.6", unit:"kg·m", label:"최대토크" },
+  { num:"3.6", unit:"sec", label:"0-100 km/h" },
+  { num:"315", unit:"km/h", label:"최고속도" },
+];
+
+/* 엔진 이미지 위에 작게 표시할 보조 정보 */
+const ENGINE_INFO = { engine:"4.0L V8 Biturbo", transmission:"AMG SPEEDSHIFT MCT 9G" };
+
+/* ==================================================
+   Technology - Apple 스타일 10개 카드 (신규)
+   ================================================== */
+const TECH_DATA = [
+  { id:"digitalLight", title:"DIGITAL LIGHT", tagline:"어둠을 밝히는 것을 넘어,\n도로 상황을 읽는 빛.", imgKey:"techDigitalLight", videoKey:"techDigitalLight", mediaType:"video",
+    desc:"DIGITAL LIGHT는 단순히 더 밝게 비추는 헤드램프가 아닙니다. 도로와 주변 환경을 분석해 필요한 영역에 정교하게 빛을 배분하며, 야간 주행에서도 운전자가 더 많은 정보를 빠르게 인식할 수 있도록 돕습니다.",
+    feats:["Adaptive Highbeam Assist PLUS","Intelligent Light Distribution","Night Driving"] },
+  { id:"rearSteer", title:"Rear Axle Steering", tagline:"긴 차체를 더 작게,\n고속에서는 더 안정적으로.", imgKey:"techRearSteer", videoKey:"techRearSteer", mediaType:"video",
+    desc:"후륜 조향 시스템은 속도에 따라 뒷바퀴의 조향 방향을 바꿉니다. 저속에서는 회전반경을 줄여 좁은 공간에서의 기동성을 높이고, 고속에서는 차체의 안정감과 자연스러운 방향 전환을 돕습니다.",
+    feats:["Low Speed Agility","High Speed Stability","Rear Wheel Steering"] },
+  { id:"activeRide", title:"Active Ride Control", tagline:"강력한 로드스터와\n마이바흐의 승차감 사이의 균형.", imgKey:"techActiveRide", videoKey:"techActiveRide", mediaType:"video",
+    desc:"Active Ride Control은 각 휠의 움직임과 차체 거동을 능동적으로 제어하여, 빠른 코너링에서도 차체의 불필요한 움직임을 억제합니다. SL 680 Monogram Series가 강력한 퍼포먼스와 마이바흐다운 안정감과 편안함을 함께 추구할 수 있는 핵심 기술입니다.",
+    feats:["Active Body Control","Roll Control","Ride Comfort"] },
+];
+
+/* ==================================================
+   비교 카드 데이터 (SL43 / SL63 / Maybach SL)
+   ================================================== */
+const COMPARE_DATA = [
+  {
+    name:"AMG SL 43", eyebrow:"Sport Roadster", imgKey:"compareSL43", featured:false,
+    rows:[
+      ["엔진","2.0L 직렬 4기통 터보 + 48V 마일드 하이브리드"],
+      ["출력","421마력의 경쾌한 반응"],
+      ["구동방식","후륜구동"],
+      ["서스펜션","AMG 스포츠 서스펜션"],
+      ["휠","20인치 AMG 멀티스포크 휠"],
+      ["소프트탑","전동 소프트탑"],
+      ["인테리어","AMG 퍼포먼스 나파가죽"],
+      ["성격","경쾌하고 접근하기 쉬운 스포츠 오픈카"],
+      ["주행감","날렵하고 기민한 반응"],
+      ["럭셔리","세련된 스포츠 럭셔리"],
+      ["Technology","MBUX, 12.3인치 디지털 클러스터"],
+      ["희소성","AMG SL 라인업의 입문"],
+      ["추천 고객","처음 만나는 오픈카를 원하는 분"],
+      ["Open Air Experience","경쾌한 바람과 젊은 에너지"],
+      ["브랜드 포지셔닝","AMG 퍼포먼스의 시작"],
+    ]
+  },
+  {
+    name:"AMG SL 63 4M+", eyebrow:"Performance Roadster", imgKey:"compareSL63", featured:false,
+    rows:[
+      ["엔진","4.0L V8 바이터보"],
+      ["출력","585마력의 압도적인 가속감"],
+      ["구동방식","AMG 퍼포먼스 4MATIC+"],
+      ["서스펜션","AMG Active Ride Control"],
+      ["휠","21인치 AMG 멀티스포크 휠"],
+      ["소프트탑","전동 소프트탑 + 매직 비전 컨트롤"],
+      ["인테리어","AMG 퍼포먼스 나파가죽 + 멀티컨투어 시트"],
+      ["성격","강렬한 퍼포먼스와 존재감"],
+      ["주행감","압도적인 가속과 다이나믹함"],
+      ["럭셔리","퍼포먼스 중심의 럭셔리"],
+      ["Technology","AMG 다이나믹 셀렉트, 리어 액슬 스티어링"],
+      ["희소성","AMG 최상위 오픈카"],
+      ["추천 고객","드라이빙의 즐거움을 극한까지 원하는 분"],
+      ["Open Air Experience","강렬한 사운드와 몰입감"],
+      ["브랜드 포지셔닝","AMG의 정점"],
+    ]
+  },
+  {
+    name:"Mercedes-Maybach SL 680 Monogram Series", eyebrow:"Ultimate Roadster", imgKey:"compareMaybachSL", featured:true,
+    rows:[
+      ["엔진","4.0L V8 바이터보 (마이바흐 전용 세팅)"],
+      ["출력","585마력, 여유로운 가속감을 위한 출력"],
+      ["구동방식","4MATIC+ 기반의 안정적인 접지감"],
+      ["서스펜션","Active Ride Control (마이바흐 전용 튜닝)"],
+      ["휠","마이바흐 전용 21인치 멀티스포크 휠"],
+      ["소프트탑","MAYBACH 패턴 소프트탑"],
+      ["인테리어","크리스탈 화이트 나파가죽 + 전용 스티칭"],
+      ["성격","우아함과 희소성의 정점"],
+      ["주행감","부드럽고 여유로운 승차감"],
+      ["럭셔리","타협 없는 최고급 오픈 럭셔리"],
+      ["Technology","마이바흐 전용 MBUX 테마, Burmester 4D 서라운드"],
+      ["희소성","극소수만이 경험하는 존재감"],
+      ["추천 고객","이동의 모든 순간을 예술로 만들고 싶은 분"],
+      ["Open Air Experience","세상과 가장 가깝지만 가장 우아하게"],
+      ["브랜드 포지셔닝","마이바흐가 완성한 유일한 오픈카"],
+    ]
+  },
+];
+
+/* ==================================================
+   유틸 함수
+   ================================================== */
+function escapeHTML(str){
+  return String(str).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+function nl2br(str){ return escapeHTML(str).replace(/\n/g,'<br>'); }
+function handleImgError(imgEl){
+  const ph = document.createElement('div');
+  ph.className = 'img-placeholder';
+  ph.textContent = '이미지를 준비 중입니다';
+  if(imgEl && imgEl.parentNode){ imgEl.replaceWith(ph); }
+}
+function buildImageMarkup(key, altText, opts){
+  opts = opts || {};
+  const src = IMAGE_LINKS[key];
+  const altSafe = escapeHTML(altText || '');
+  if(src){
+    const zoomAttrs = opts.zoomable ? `class="zoomable-image" tabindex="0" role="button" aria-label="${altSafe} 이미지 확대 보기"` : '';
+    return `<img src="${escapeHTML(src)}" alt="${altSafe}" loading="lazy" ${zoomAttrs} onerror="handleImgError(this)">`;
+  }
+  return `<div class="img-placeholder">이미지를 준비 중입니다</div>`;
+}
+
+/* ==================================================
+   렌더링: 히어로 / 엔딩 히어로 이미지
+   ================================================== */
+function initHeroMedia(mediaId, key, alt){
+  const media = document.getElementById(mediaId);
+  const src = IMAGE_LINKS[key];
+  if(src){
+    const img = document.createElement('img');
+    img.alt = alt;
+    img.loading = 'eager';
+    img.onerror = function(){ media.classList.remove('has-image'); media.classList.add('no-image'); img.remove(); };
+    img.onload = function(){ media.classList.add('has-image'); media.classList.remove('no-image'); };
+    img.src = src;
+    media.appendChild(img);
+  } else {
+    media.classList.add('no-image');
+  }
+}
+
+/* ==================================================
+   렌더링: Why 이미지
+   ================================================== */
+function renderWhyMedia(){
+  document.getElementById('whyMedia').innerHTML = buildImageMarkup('why','Mercedes-Maybach SL 680 Monogram Series',{zoomable:true});
+}
+
+/* ==================================================
+   렌더링: Maybach Experience
+   ================================================== */
+function renderExperience(){
+  const wrap = document.getElementById('experienceGrid');
+  wrap.innerHTML = EXPERIENCE_DATA.map(item => `
+    <div class="exp-card reveal">
+      <div class="exp-media">${buildImageMarkup(item.imgKey, item.title, {zoomable:false})}</div>
+      <div class="exp-overlay"></div>
+      <div class="exp-body">
+        <p class="exp-num eng">${escapeHTML(item.num)}</p>
+        <p class="exp-title">${escapeHTML(item.title)}</p>
+        <p class="exp-quote">${nl2br(item.quote)}</p>
+      </div>
+    </div>
+  `).join('');
+}
+
+/* ==================================================
+   렌더링 + 인터랙션: Signature Design (탭 전환 - 핫스팟 없음)
+   ================================================== */
+/* Signature Design 전용 이미지 사전 로딩 캐시. 탭 클릭 시 재요청 없이 즉시 표시하기 위함 */
+const signatureImageCache = new Map(); /* tab.id -> 디코딩까지 끝난 HTMLImageElement */
+
+function preloadSignatureImages(){
+  SIGNATURE_TABS.forEach(t => {
+    const src = IMAGE_LINKS[t.imageKey];
+    if(!src) return;
+    const img = new Image();
+    img.decoding = 'async';
+    img.src = src;
+    const store = () => signatureImageCache.set(t.id, img);
+    if(img.decode){ img.decode().catch(() => {}).finally(store); }
+    else { img.onload = store; }
+  });
+}
+
+/* 캐시에 이미 준비된 이미지가 있으면 즉시 resolve, 없으면 새로 로드 후 캐시에 저장한다 */
+function loadSignatureImage(t){
+  return new Promise((resolve) => {
+    const src = IMAGE_LINKS[t.imageKey];
+    if(!src){ resolve(null); return; }
+    const cached = signatureImageCache.get(t.id);
+    if(cached && cached.complete && cached.naturalWidth > 0){ resolve(cached); return; }
+    const img = new Image();
+    img.decoding = 'async';
+    img.src = src;
+    const done = () => { signatureImageCache.set(t.id, img); resolve(img); };
+    const fail = () => resolve(null);
+    if(img.decode){ img.decode().then(done).catch(() => { img.onload ? null : fail(); }); img.onerror = fail; }
+    else { img.onload = done; img.onerror = fail; }
+  });
+}
+
+/* ==================================================
+   렌더링 + 인터랙션: Signature Design (탭 전환 - 핫스팟 없음)
+   더블 버퍼 크로스페이드 + 사전 로딩 + "최신 클릭 우선" 취소 구조로
+   탭 클릭 시 UI(버튼/설명)는 즉시, 이미지는 준비되는 즉시(약 160ms) 전환한다.
+   ================================================== */
+function renderSignature(){
+  const stage = document.getElementById('signatureStage');
+  stage.innerHTML = `
+    <div class="sig-media" id="sigMedia">
+      <div class="sig-frame" id="sigFrame">
+        <div class="sig-image sig-ph" id="sigPh"><div class="img-placeholder">이미지를 준비 중입니다</div></div>
+        <img class="sig-image zoomable-image" id="sigImgA" tabindex="0" role="button">
+        <img class="sig-image zoomable-image" id="sigImgB" tabindex="0" role="button">
+      </div>
+      <div class="sig-ground" id="sigGround"></div>
+    </div>`;
+  const sigFrame = document.getElementById('sigFrame');
+  const sigPh = document.getElementById('sigPh');
+  const imgSlots = [document.getElementById('sigImgA'), document.getElementById('sigImgB')];
+  const tabs = document.getElementById('sigTabs');
+  const panel = document.getElementById('sigPanel');
+
+  tabs.innerHTML = SIGNATURE_TABS.map(t => `
+    <button type="button" class="sig-tab" id="sigTab-${t.id}" data-id="${t.id}"
+      role="tab" aria-selected="false" aria-controls="sigPanel">${escapeHTML(t.label)}</button>
+  `).join('');
+
+  let toggle = 0;
+  function getNextImgSlot(){ const slot = imgSlots[toggle]; toggle = 1 - toggle; return slot; }
+
+  let activeEl = null; /* 현재 화면에 보이는 레이어(placeholder 또는 img) */
+  let requestId = 0;   /* 매 클릭마다 증가 - 오래된 요청이 늦게 도착해도 최신 클릭만 반영되도록 함 */
+
+  function showLayer(el){
+    if(activeEl && activeEl !== el) activeEl.classList.remove('is-active');
+    el.classList.add('is-active');
+    activeEl = el;
+  }
+
+  function renderPanel(t){
+    panel.classList.remove('fade-in');
+    panel.innerHTML = `
+      <div class="detail-header">
+        <p class="detail-eyebrow eng">Signature Detail</p>
+        <h3 class="detail-title">${escapeHTML(t.title)}</h3>
+        <p class="detail-lead">${escapeHTML(t.description)}</p>
+      </div>
+      <div class="detail-values">
+        <div class="detail-value-card">
+          <p class="detail-value-num eng">01</p>
+          <p class="detail-value-title">AMG와 다른 점</p>
+          <p class="detail-value-text">${escapeHTML(t.difference)}</p>
+        </div>
+        <div class="detail-value-card">
+          <p class="detail-value-num eng">02</p>
+          <p class="detail-value-title">만드는 분위기</p>
+          <p class="detail-value-text">${escapeHTML(t.atmosphere)}</p>
+        </div>
+        <div class="detail-value-card">
+          <p class="detail-value-num eng">03</p>
+          <p class="detail-value-title">오너의 만족감</p>
+          <p class="detail-value-text">${escapeHTML(t.ownerValue)}</p>
+        </div>
+      </div>
+    `;
+    requestAnimationFrame(() => requestAnimationFrame(() => panel.classList.add('fade-in')));
+  }
+
+  async function activate(id){
+    const t = SIGNATURE_TABS.find(x => x.id === id);
+    if(!t) return;
+    const current = tabs.querySelector('.sig-tab[aria-selected="true"]');
+    if(current && current.dataset.id === id) return; /* 동일 탭 재클릭 시 아무 동작 안 함 */
+
+    const rid = ++requestId; /* 이 클릭만의 요청 번호 */
+
+    /* 1) UI는 이미지 로딩과 무관하게 즉시 반영 */
+    tabs.querySelectorAll('.sig-tab').forEach(el => el.setAttribute('aria-selected', el.dataset.id === id ? 'true' : 'false'));
+    renderPanel(t);
+
+    const src = IMAGE_LINKS[t.imageKey];
+    if(!src){
+      /* 이미지가 없으면 기존 이미지를 지우지 않고 placeholder로 즉시 교차 전환 */
+      requestAnimationFrame(() => { if(rid === requestId) showLayer(sigPh); });
+      return;
+    }
+
+    /* 2) 이미지 준비(캐시에 있으면 사실상 즉시) */
+    const readyImg = await loadSignatureImage(t);
+    if(rid !== requestId) return; /* 그 사이 다른 탭이 클릭됨 - 이 요청은 폐기하고 화면을 덮어쓰지 않음 */
+    if(!readyImg){
+      requestAnimationFrame(() => { if(rid === requestId) showLayer(sigPh); });
+      return;
+    }
+
+    /* 3) 준비된 이미지를 비어있는(현재 보이지 않는) 슬롯에 넣고 다음 프레임에 교차 페이드 */
+    const slot = getNextImgSlot();
+    slot.src = readyImg.src;
+    slot.alt = t.title;
+    slot.style.objectFit = t.fit || 'cover';
+    slot.style.objectPosition = t.position || 'center center';
+    slot.setAttribute('aria-label', t.title + ' 이미지 확대 보기');
+    requestAnimationFrame(() => {
+      if(rid !== requestId) return; /* 이미지 준비 도중에도 더 최신 클릭이 있었다면 화면을 덮어쓰지 않음 */
+      showLayer(slot);
+    });
+  }
+
+  tabs.addEventListener('click', (e) => {
+    const btn = e.target.closest('.sig-tab');
+    if(btn) activate(btn.dataset.id);
+  });
+
+  if(SIGNATURE_TABS[0]){
+    activate(SIGNATURE_TABS[0].id);
+  }
+}
+
+/* ==================================================
+   렌더링 + 인터랙션: Interior (+ 기본사양 아이콘 그리드)
+   ================================================== */
+/* Interior 전용 이미지 사전 로딩 캐시 (Signature Design과 동일한 패턴) */
+const interiorImageCache = new Map();
+
+function preloadInteriorImages(){
+  INTERIOR_DATA.forEach(t => {
+    const src = IMAGE_LINKS[t.imageKey];
+    if(!src) return;
+    const img = new Image();
+    img.decoding = 'async';
+    img.src = src;
+    const store = () => interiorImageCache.set(t.id, img);
+    if(img.decode){ img.decode().catch(() => {}).finally(store); }
+    else { img.onload = store; }
+  });
+}
+
+function loadInteriorImage(t){
+  return new Promise((resolve) => {
+    const src = IMAGE_LINKS[t.imageKey];
+    if(!src){ resolve(null); return; }
+    const cached = interiorImageCache.get(t.id);
+    if(cached && cached.complete && cached.naturalWidth > 0){ resolve(cached); return; }
+    const img = new Image();
+    img.decoding = 'async';
+    img.src = src;
+    const done = () => { interiorImageCache.set(t.id, img); resolve(img); };
+    const fail = () => resolve(null);
+    if(img.decode){ img.decode().then(done).catch(() => { img.onload ? null : fail(); }); img.onerror = fail; }
+    else { img.onload = done; img.onerror = fail; }
+  });
+}
+
+/* ==================================================
+   렌더링 + 인터랙션: Interior (+ 기본사양 아이콘 그리드)
+   더블 버퍼 크로스페이드 + 사전 로딩 + "최신 클릭 우선" 취소 구조.
+   데스크톱/태블릿 가로 = 아코디언 목록, 모바일/태블릿 세로 = 가로 스크롤 탭.
+   두 UI는 항상 함께 렌더링되고 같은 activate()로 동기화되며, 화면 크기에 따라 CSS로만 전환된다.
+   ================================================== */
+function renderInterior(){
+  const stage = document.getElementById('interiorStage');
+  stage.innerHTML = `
+    <div class="sig-media" id="intMedia">
+      <div class="sig-frame" id="intFrame">
+        <div class="sig-image sig-ph" id="intPh"><div class="img-placeholder">이미지를 준비 중입니다</div></div>
+        <img class="sig-image zoomable-image" id="intImgA" tabindex="0" role="button">
+        <img class="sig-image zoomable-image" id="intImgB" tabindex="0" role="button">
+      </div>
+      <div class="sig-ground" id="intGround"></div>
+    </div>`;
+  const ph = document.getElementById('intPh');
+  const imgSlots = [document.getElementById('intImgA'), document.getElementById('intImgB')];
+  const tabs = document.getElementById('intTabs');
+  const panel = document.getElementById('intPanel');
+
+  tabs.innerHTML = INTERIOR_DATA.map(t => `
+    <button type="button" class="sig-tab" id="intTab-${t.id}" data-id="${t.id}"
+      role="tab" aria-selected="false" aria-controls="intPanel">${escapeHTML(t.title)}</button>
+  `).join('');
+
+  let toggle = 0;
+  function getNextImgSlot(){ const slot = imgSlots[toggle]; toggle = 1 - toggle; return slot; }
+
+  let activeEl = null; /* 현재 화면에 보이는 레이어(placeholder 또는 img) */
+  let requestId = 0;   /* 매 클릭마다 증가 - 오래된 요청이 늦게 도착해도 최신 클릭만 반영되도록 함 */
+  let currentTab = null; /* 리사이즈 시 object-position 재적용용 */
+
+  function showLayer(el){
+    if(activeEl && activeEl !== el) activeEl.classList.remove('is-active');
+    el.classList.add('is-active');
+    activeEl = el;
+  }
+
+  /* 화면 폭에 따라 데스크톱/태블릿/모바일 전용 object-position을 우선 적용한다 (없으면 기본 position 사용) */
+  function resolvePosition(t){
+    const w = window.innerWidth;
+    if(w <= 767 && t.positionMobile) return t.positionMobile;
+    if(w >= 768 && w <= 1023 && t.positionTablet) return t.positionTablet;
+    if(w >= 1024 && t.positionDesktop) return t.positionDesktop;
+    return t.position || 'center center';
+  }
+
+  function applyActivePosition(){
+    if(!currentTab || !activeEl || activeEl === ph) return;
+    activeEl.style.objectPosition = resolvePosition(currentTab);
+  }
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(applyActivePosition, 120);
+  });
+
+  function renderPanel(t){
+    panel.classList.remove('fade-in');
+    panel.innerHTML = `
+      <div class="detail-header">
+        <p class="detail-eyebrow eng">Interior Detail</p>
+        <h3 class="detail-title">${escapeHTML(t.title)}</h3>
+        <p class="detail-lead">${escapeHTML(t.description)}</p>
+      </div>
+      <div class="detail-value-highlight">
+        <p class="detail-value-title">Maybach Value</p>
+        <p class="detail-value-text">${escapeHTML(t.value)}</p>
+      </div>
+    `;
+    requestAnimationFrame(() => requestAnimationFrame(() => panel.classList.add('fade-in')));
+  }
+
+  async function activate(id){
+    const t = INTERIOR_DATA.find(x => x.id === id);
+    if(!t) return;
+    const current = tabs.querySelector('.sig-tab[aria-selected="true"]');
+    if(current && current.dataset.id === id) return; /* 동일 탭 재클릭 시 아무 동작 안 함 */
+
+    const rid = ++requestId; /* 이 클릭만의 요청 번호 */
+
+    /* 1) UI는 이미지 로딩과 무관하게 즉시 반영 */
+    tabs.querySelectorAll('.sig-tab').forEach(el => el.setAttribute('aria-selected', el.dataset.id === id ? 'true' : 'false'));
+    renderPanel(t);
+
+    const src = IMAGE_LINKS[t.imageKey];
+    if(!src){
+      /* 이미지가 없으면 기존 이미지를 지우지 않고 placeholder로 즉시 교차 전환 */
+      requestAnimationFrame(() => { if(rid === requestId) showLayer(ph); });
+      return;
+    }
+
+    /* 2) 이미지 준비(캐시에 있으면 사실상 즉시) */
+    const readyImg = await loadInteriorImage(t);
+    if(rid !== requestId) return; /* 그 사이 다른 탭이 클릭됨 - 이 요청은 폐기하고 화면을 덮어쓰지 않음 */
+    if(!readyImg){
+      requestAnimationFrame(() => { if(rid === requestId) showLayer(ph); });
+      return;
+    }
+
+    /* 3) 준비된 이미지를 비어있는(현재 보이지 않는) 슬롯에 넣고 다음 프레임에 교차 페이드 */
+    const slot = getNextImgSlot();
+    slot.src = readyImg.src;
+    slot.alt = t.title;
+    slot.style.objectFit = t.fit || 'cover';
+    slot.style.objectPosition = resolvePosition(t);
+    slot.setAttribute('aria-label', t.title + ' 이미지 확대 보기');
+    slot.dataset.caption = t.caption || '';
+    requestAnimationFrame(() => {
+      if(rid !== requestId) return; /* 이미지 준비 도중에도 더 최신 클릭이 있었다면 화면을 덮어쓰지 않음 */
+      currentTab = t;
+      showLayer(slot);
+    });
+  }
+
+  tabs.addEventListener('click', (e) => {
+    const btn = e.target.closest('.sig-tab');
+    if(btn) activate(btn.dataset.id);
+  });
+
+  if(INTERIOR_DATA[0]){
+    activate(INTERIOR_DATA[0].id);
+  }
+}
+
+/* ==================================================
+   렌더링 + 인터랙션: Interior 하단 통합 기본 사양 (편의 사양 / 안전 사양 탭)
+   ================================================== */
+function renderEquipment(){
+  const tabs = document.getElementById('eqTabs');
+  const grid = document.getElementById('eqGrid');
+  const CATS = [
+    { id:"convenience", en:"Comfort & Convenience", kr:"편의 사양" },
+    { id:"safety", en:"Safety & Assistance", kr:"안전 사양" },
+  ];
+
+  tabs.innerHTML = CATS.map(c => `
+    <button type="button" class="eq-tab" id="eqTab-${c.id}" data-id="${c.id}"
+      role="tab" aria-selected="false" aria-controls="eqGrid">
+      <span class="eq-tab-en eng">${escapeHTML(c.en)}</span>
+      <span class="eq-tab-kr">${escapeHTML(c.kr)}</span>
+    </button>
+  `).join('');
+
+  function renderGrid(catId){
+    grid.innerHTML = EQUIPMENT_DATA[catId].map(item => `
+      <div class="eq-item">
+        <div class="eq-icon">${iconMarkup(item.icon)}</div>
+        <div class="eq-text">
+          <p class="eq-name">${escapeHTML(item.name)}</p>
+          <p class="eq-desc">${escapeHTML(item.sub)}</p>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function activate(catId){
+    const current = tabs.querySelector('.eq-tab[aria-selected="true"]');
+    if(current && current.dataset.id === catId) return;
+    tabs.querySelectorAll('.eq-tab').forEach(el => el.setAttribute('aria-selected', el.dataset.id === catId ? 'true' : 'false'));
+    /* 짧은 fade만 적용 - setTimeout 없이 클릭 즉시 내용 반영 */
+    grid.classList.remove('is-visible');
+    renderGrid(catId);
+    requestAnimationFrame(() => requestAnimationFrame(() => grid.classList.add('is-visible')));
+  }
+
+  tabs.addEventListener('click', (e) => {
+    const btn = e.target.closest('.eq-tab');
+    if(btn) activate(btn.dataset.id);
+  });
+
+  activate('convenience');
+}
+
+/* ==================================================
+   렌더링 + 인터랙션: Technology (신규 - Apple 스타일)
+   ================================================== */
+/* ==================================================
+   렌더링 + 인터랙션: Technology (영상/이미지 지원 기술 쇼케이스)
+   ================================================== */
+const TECH_ICONS = {
+  play:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>',
+  pause:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>',
+  soundOn:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M5 9v6h4l5 5V4L9 9H5z"/><path stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" d="M16 9a4 4 0 010 6"/></svg>',
+  soundOff:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M5 9v6h4l5 5V4L9 9H5z"/><path stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" d="M16.5 9l5 6M21.5 9l-5 6"/></svg>',
+  playBadge:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>',
+};
+
+function renderTech(){
+  const grid = document.getElementById('techGrid');
+  grid.innerHTML = TECH_DATA.map(item => `
+    <div class="tech-card" data-id="${item.id}">
+      ${buildImageMarkup(item.imgKey, item.title, {zoomable:false})}
+      <div class="tech-card-overlay"></div>
+      ${(item.mediaType === 'video' && VIDEO_LINKS[item.videoKey]) ? `<div class="tech-play-badge">${TECH_ICONS.playBadge}</div>` : ''}
+      <p class="tech-card-name">${escapeHTML(item.title)}</p>
+    </div>
+  `).join('');
+
+  const stage = document.getElementById('techStage');
+  stage.innerHTML = `
+    <div class="tech-stage-media" id="techStageMedia">
+      <video class="tech-media-video" id="techVideo" muted playsinline loop preload="metadata"></video>
+      <img class="tech-media-image" id="techImage" alt="">
+      <div class="tech-video-controls" id="techVideoControls">
+        <button type="button" class="tech-ctrl" id="techPlayBtn" aria-label="일시정지">${TECH_ICONS.pause}</button>
+        <button type="button" class="tech-ctrl" id="techMuteBtn" aria-label="소리 켜기">${TECH_ICONS.soundOff}</button>
+      </div>
+    </div>
+    <div id="techTextPanel"></div>
+  `;
+
+  const stageMedia = document.getElementById('techStageMedia');
+  const video = document.getElementById('techVideo');
+  const img = document.getElementById('techImage');
+  const playBtn = document.getElementById('techPlayBtn');
+  const muteBtn = document.getElementById('techMuteBtn');
+  const textPanel = document.getElementById('techTextPanel');
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let inView = false;
+  let userPaused = false;
+
+  function updatePlayIcon(){ playBtn.innerHTML = video.paused ? TECH_ICONS.play : TECH_ICONS.pause; playBtn.setAttribute('aria-label', video.paused ? '재생' : '일시정지'); }
+  function updateMuteIcon(){ muteBtn.innerHTML = video.muted ? TECH_ICONS.soundOff : TECH_ICONS.soundOn; muteBtn.setAttribute('aria-label', video.muted ? '소리 켜기' : '음소거'); }
+
+  function tryPlayVideo(){
+    if(prefersReducedMotion || userPaused || !inView) return;
+    const p = video.play();
+    if(p && p.catch) p.catch(() => {});
+  }
+
+  function showMedia(useVideo){
+    stageMedia.classList.toggle('has-video', useVideo);
+    video.classList.toggle('is-visible', useVideo);
+    img.classList.toggle('is-visible', !useVideo);
+  }
+
+  function renderTextPanel(item){
+    textPanel.innerHTML = `
+      <p class="tech-stage-eyebrow eng">Technology</p>
+      <p class="tech-stage-title">${escapeHTML(item.title)}</p>
+      ${item.tagline ? `<p class="tech-stage-tagline">${nl2br(item.tagline)}</p>` : ''}
+      <p class="tech-stage-desc">${escapeHTML(item.desc)}</p>
+      <div class="tech-stage-feats">
+        ${item.feats.map(f => `<span class="tech-feat">${escapeHTML(f)}</span>`).join('')}
+      </div>
+    `;
+  }
+
+  function activate(item){
+    /* 1) UI(활성 카드/제목/설명/특징)는 영상 로딩과 무관하게 즉시 반영 */
+    grid.querySelectorAll('.tech-card').forEach(c => c.classList.toggle('active', c.dataset.id === item.id));
+    renderTextPanel(item);
+
+    /* 2) 이전 영상 완전히 정지 후 초기화 (소리·재생 상태가 다음 기술로 넘어가지 않도록) */
+    video.pause();
+    video.currentTime = 0;
+    video.muted = true;
+    userPaused = false;
+    updateMuteIcon();
+    updatePlayIcon();
+
+    const posterSrc = IMAGE_LINKS[item.imgKey] || '';
+    img.src = posterSrc;
+    img.alt = item.title;
+
+    const videoSrc = item.mediaType === 'video' ? VIDEO_LINKS[item.videoKey] : '';
+    if(!videoSrc){
+      /* 영상이 없는 기술 - 이미지로 표시 */
+      video.removeAttribute('src');
+      showMedia(false);
+      return;
+    }
+
+    /* 3) 준비 전까지는 포스터(썸네일) 이미지를 그대로 보여줘 빈 화면/검은 화면이 없도록 함 */
+    video.setAttribute('aria-label', item.title + ' 작동 영상');
+    video.poster = posterSrc;
+    showMedia(false);
+    video.src = videoSrc;
+    video.load();
+
+    const onReady = () => {
+      showMedia(true);
+      tryPlayVideo();
+      updatePlayIcon();
+      video.removeEventListener('loadeddata', onReady);
+    };
+    const onError = () => {
+      /* 영상 로딩 실패 시 이미지로 자동 대체 */
+      showMedia(false);
+      video.removeEventListener('error', onError);
+    };
+    video.addEventListener('loadeddata', onReady);
+    video.addEventListener('error', onError);
+  }
+
+  playBtn.addEventListener('click', () => {
+    if(video.paused){ userPaused = false; tryPlayVideo(); }
+    else { video.pause(); userPaused = true; }
+    updatePlayIcon();
+  });
+  muteBtn.addEventListener('click', () => {
+    video.muted = !video.muted;
+    updateMuteIcon();
+  });
+  video.addEventListener('play', updatePlayIcon);
+  video.addEventListener('pause', updatePlayIcon);
+
+  /* Technology Stage가 40~50% 이상 화면에 보일 때만 재생, 벗어나면 정지 (배터리·성능 절약) */
+  const stageObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      inView = entry.isIntersecting;
+      if(inView) tryPlayVideo();
+      else video.pause();
+    });
+  }, { threshold: 0.45 });
+  stageObserver.observe(stage);
+
+  grid.addEventListener('click', (e) => {
+    const card = e.target.closest('.tech-card');
+    if(!card) return;
+    const item = TECH_DATA.find(t => t.id === card.dataset.id);
+    if(item) activate(item);
+  });
+
+  if(TECH_DATA[0]) activate(TECH_DATA[0]);
+}
+
+/* ==================================================
+   렌더링: Performance (+ 스펙 스트립)
+   ================================================== */
+function renderPerformance(){
+  const media = document.getElementById('perfMedia');
+  media.innerHTML = buildImageMarkup('performance','Mercedes-Maybach SL 680 Monogram Series 퍼포먼스',{zoomable:true}) + `
+    <div class="perf-engine-label">
+      <p><span class="lbl-en eng">Engine</span><span class="lbl-val">${escapeHTML(ENGINE_INFO.engine)}</span></p>
+      <p><span class="lbl-en eng">Transmission</span><span class="lbl-val">${escapeHTML(ENGINE_INFO.transmission)}</span></p>
+    </div>
+  `;
+
+  document.getElementById('perfStats').innerHTML = PERF_STATS.map(item => `
+    <div class="perf-stat">
+      <p class="perf-stat-num eng">${escapeHTML(item.num)}</p>
+      <p class="perf-stat-unit eng">${escapeHTML(item.unit)}</p>
+      <p class="perf-stat-label">${escapeHTML(item.label)}</p>
+    </div>
+  `).join('');
+
+  document.getElementById('perfCards').innerHTML = PERFORMANCE_DATA.map(item => `
+    <div class="perf-card">
+      <p class="perf-card-key eng">${escapeHTML(item.key)}</p>
+      <p class="perf-card-title">${escapeHTML(item.title)}</p>
+      <p class="perf-card-desc">${escapeHTML(item.desc)}</p>
+    </div>
+  `).join('');
+}
+
+/* ==================================================
+   렌더링: 비교 카드
+   ================================================== */
+function renderCompare(){
+  const wrap = document.getElementById('compareGrid');
+  wrap.innerHTML = COMPARE_DATA.map(card => `
+    <div class="cmp-card reveal${card.featured ? ' cmp-card--maybach' : ''}">
+      ${card.featured ? '<span class="cmp-badge eng">Ultimate Choice</span>' : ''}
+      <div class="cmp-media">${buildImageMarkup(card.imgKey, card.name, {zoomable:true})}</div>
+      <p class="cmp-eyebrow eng">${escapeHTML(card.eyebrow)}</p>
+      <p class="cmp-name">${escapeHTML(card.name)}</p>
+      <div class="cmp-rows">
+        ${card.rows.map(r => `
+          <div class="cmp-row">
+            <p class="cmp-row-label">${escapeHTML(r[0])}</p>
+            <p class="cmp-row-value">${escapeHTML(r[1])}</p>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+/* ==================================================
+   내비게이션
+   ================================================== */
+function initNav(){
+  const header = document.getElementById('siteHeader');
+  const toggle = document.getElementById('navToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const scrim = document.getElementById('navScrim');
+
+  function onScroll(){
+    if(window.scrollY > 40){ header.classList.add('scrolled'); }
+    else{ header.classList.remove('scrolled'); }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  function closeMenu(){
+    mobileMenu.classList.remove('open');
+    toggle.classList.remove('open');
+    toggle.setAttribute('aria-expanded','false');
+    scrim.classList.remove('open');
+  }
+  function openMenu(){
+    mobileMenu.classList.add('open');
+    toggle.classList.add('open');
+    toggle.setAttribute('aria-expanded','true');
+    scrim.classList.add('open');
+  }
+  toggle.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.contains('open');
+    isOpen ? closeMenu() : openMenu();
+  });
+  scrim.addEventListener('click', closeMenu);
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => { if(window.innerWidth > 1023){ closeMenu(); } }, 150);
+  });
+}
+
+/* ==================================================
+   스크롤 reveal 애니메이션
+   ================================================== */
+function initReveal(){
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry, idx) => {
+      if(entry.isIntersecting){
+        const delay = (idx % 6) * 60;
+        setTimeout(() => entry.target.classList.add('is-visible'), delay);
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.12, rootMargin:'0px 0px -60px 0px'});
+  document.querySelectorAll('.reveal, .reveal-img, .reveal-scale').forEach(el => io.observe(el));
+}
+
+/* ==================================================
+   이미지 확대 모달 (전 섹션 공용)
+   ================================================== */
+function initLightbox(){
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+  const closeBtn = document.getElementById('lightboxClose');
+  let lastTrigger = null;
+
+  function openLightbox(triggerEl, caption){
+    const src = triggerEl.currentSrc || triggerEl.src;
+    if(!src) return;
+    lastTrigger = triggerEl;
+    lightboxImg.src = src;
+    lightboxImg.alt = triggerEl.alt || '';
+    if(caption){ lightboxCaption.textContent = caption; lightboxCaption.style.display = 'block'; }
+    else{ lightboxCaption.textContent = ''; lightboxCaption.style.display = 'none'; }
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+  function closeLightbox(){
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+    lightboxImg.src = '';
+    lightboxCaption.textContent = '';
+    if(lastTrigger){ lastTrigger.focus(); lastTrigger = null; }
+  }
+
+  document.addEventListener('click', (e) => {
+    const target = e.target.closest('.zoomable-image');
+    if(target){
+      const caption = target.dataset.caption || '';
+      if(target.tagName !== 'IMG'){
+        const img = target.querySelector('img');
+        if(img){ e.preventDefault(); openLightbox(img, caption); }
+        return;
+      }
+      e.preventDefault();
+      openLightbox(target, caption);
+    }
+  });
+  document.addEventListener('keydown', (e) => {
+    const target = e.target.closest && e.target.closest('.zoomable-image');
+    if(target && (e.key === 'Enter' || e.key === ' ')){
+      e.preventDefault();
+      const caption = target.dataset.caption || '';
+      const img = target.tagName === 'IMG' ? target : target.querySelector('img');
+      if(img) openLightbox(img, caption);
+    }
+  });
+  closeBtn.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox(); });
+}
+
+/* ==================================================
+   초기 실행
+   ================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+  initHeroMedia('heroMedia','hero','Mercedes-Maybach SL 680 Monogram Series 대표 이미지');
+  initHeroMedia('endingMedia','ending','Mercedes-Maybach SL 680 Monogram Series 엔딩 이미지');
+  renderWhyMedia();
+  renderExperience();
+  renderSignature();
+  renderInterior();
+  renderEquipment();
+  renderTech();
+  renderPerformance();
+  renderCompare();
+  initNav();
+  initLightbox();
+  initReveal();
+  const yearEl = document.getElementById('copyYear');
+  if(yearEl) yearEl.textContent = new Date().getFullYear();
+});
+</script>
+</body>
+</html>
