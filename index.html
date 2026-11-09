@@ -165,6 +165,10 @@ section{scroll-margin-top:var(--header-h);}
     repeating-linear-gradient(120deg, rgba(139,115,85,0.05) 0px, rgba(139,115,85,0.05) 1px, transparent 1px, transparent 64px),
     linear-gradient(150deg,#EFE9DC,#E4D9C4 55%,#DCCEB4);
 }
+.hero-media.no-image ~ .hero-content .hero-eyebrow,
+.hero-media.no-image ~ .hero-content .hero-title,
+.hero-media.no-image ~ .hero-content .hero-sub,
+.hero-media.no-image ~ .hero-content .hero-desc{color:var(--text-main);text-shadow:none;}
 .hero-content{
   position:relative;z-index:2;width:100%;
   padding:0 0 clamp(48px,7vw,96px);
@@ -679,23 +683,23 @@ a.model-card:hover .model-link .arrow{transform:translateX(5px);}
    레이아웃은 깨지지 않습니다.
    ===================================================== */
 const IMAGE_LINKS = {
-  hero: "https://github.com/JNOHJINGYU/images/blob/main/maybarh_hero.jpg?raw=true",
+  hero: "https://raw.githubusercontent.com/JNOHJINGYU/images/main/maybarh_hero.jpg",
 
   /* 1908: 제플린 LZ4 사고 / 국민 모금 관련 이미지 (기존 1921에 있던 비행선 이미지를 이동) */
-  history1908: "https://github.com/JNOHJINGYU/images/blob/main/1908_jeppelin.png?raw=true",
+  history1908: "https://raw.githubusercontent.com/JNOHJINGYU/images/main/1908_jeppelin.png",
   /* 1909: 마이바흐 비행선 엔진 회사 설립 당시 사무실/공방 이미지 */
-  history1909: "https://github.com/JNOHJINGYU/images/blob/main/maybarh_office.jpeg?raw=true",
+  history1909: "https://raw.githubusercontent.com/JNOHJINGYU/images/main/maybarh_office.jpeg",
   /* 1921: 반드시 Maybach W3 자동차 이미지로 채워주세요 (제플린 이미지는 위 1908로 이동됨) */
-  history1921: "https://github.com/JNOHJINGYU/images/blob/main/1921_maybarh_w3.png?raw=true",
-  history1930: "https://github.com/JNOHJINGYU/images/blob/main/MAYBARH_KING.png?raw=true",
-  history2002: "https://github.com/JNOHJINGYU/images/blob/main/maybarh_samsung.png?raw=true",
-  history2015: "https://github.com/JNOHJINGYU/images/blob/main/2016_MAYBARH.jpg?raw=true",
-  historyToday: "https://github.com/JNOHJINGYU/images/blob/main/MAYBARH_ALL.png?raw=true",
+  history1921: "https://raw.githubusercontent.com/JNOHJINGYU/images/main/1921_maybarh_w3.png",
+  history1930: "https://raw.githubusercontent.com/JNOHJINGYU/images/main/MAYBARH_KING.png",
+  history2002: "https://raw.githubusercontent.com/JNOHJINGYU/images/main/maybarh_samsung.png",
+  history2015: "https://raw.githubusercontent.com/JNOHJINGYU/images/main/2016_MAYBARH.jpg",
+  historyToday: "https://raw.githubusercontent.com/JNOHJINGYU/images/main/MAYBARH_ALL.png",
 
-  maybachSClass: "https://github.com/JNOHJINGYU/images/blob/main/maybarh_new_s.jpg?raw=true",
-  maybachGLS: "https://github.com/JNOHJINGYU/images/blob/main/maybarh_new_gls.jpg?raw=true",
-  maybachEQSSUV: "https://github.com/JNOHJINGYU/images/blob/main/maybarh_eqs.jpg?raw=true",
-  maybachSL: "https://github.com/JNOHJINGYU/images/blob/main/maybarh_sl.jpg?raw=true",
+  maybachSClass: "https://raw.githubusercontent.com/JNOHJINGYU/images/main/maybarh_new_s.jpg",
+  maybachGLS: "https://raw.githubusercontent.com/JNOHJINGYU/images/main/maybarh_new_gls.jpg",
+  maybachEQSSUV: "https://raw.githubusercontent.com/JNOHJINGYU/images/main/maybarh_eqs.jpg",
+  maybachSL: "https://raw.githubusercontent.com/JNOHJINGYU/images/main/maybarh_sl.jpg",
 };
 
 /* ==================================================
@@ -808,8 +812,9 @@ function isValidLink(link){
   return !!(link && link.trim() !== '' && link.trim() !== '#');
 }
 
-// 이미지 로드 실패 시 깨진 이미지 아이콘 대신 안내 placeholder로 교체
+// 이미지 로드 실패 시 원인 확인을 위해 URL을 콘솔에 출력하고 안내 placeholder로 교체
 function handleImgError(imgEl){
+  console.error('[Maybach] 이미지 로딩 실패:', imgEl && imgEl.src);
   const ph = document.createElement('div');
   ph.className = 'img-placeholder';
   ph.textContent = '이미지를 준비 중입니다';
@@ -897,6 +902,7 @@ function initHero(){
     img.alt = 'Mercedes-Maybach 대표 이미지';
     img.loading = 'eager'; /* 히어로 이미지는 lazy loading 적용하지 않음 */
     img.onerror = function(){
+      console.error('[Maybach] 히어로 이미지 로딩 실패:', img.src);
       media.classList.remove('has-image');
       media.classList.add('no-image');
       img.remove();
@@ -967,6 +973,10 @@ function initNav(){
    스크롤 reveal 애니메이션 (IntersectionObserver)
    ================================================== */
 function initReveal(){
+  if(!('IntersectionObserver' in window)){
+    document.querySelectorAll('.reveal, .reveal-img').forEach(el => el.classList.add('is-visible'));
+    return;
+  }
   const io = new IntersectionObserver((entries) => {
     entries.forEach((entry, idx) => {
       if(entry.isIntersecting){
