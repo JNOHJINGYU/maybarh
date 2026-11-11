@@ -142,7 +142,8 @@ section{scroll-margin-top:var(--header-h);}
   overflow:hidden;
 }
 .hero-media{position:absolute;inset:0;background:linear-gradient(150deg,#EFE9DC,#E4D9C4 55%,#DCCEB4);}
-.hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 62%;}
+.hero-media img,
+.hero-media video{display:block;width:100%;height:100%;object-fit:cover;object-position:center 62%;}
 .hero-media.has-image::after{
   content:'';position:absolute;inset:0;
   /* 왼쪽(텍스트 영역)만 자연스럽게 어두워지는 수평 그라데이션 + 아주 약한 하단 그라데이션 */
@@ -227,7 +228,8 @@ section{scroll-margin-top:var(--header-h);}
     position:relative;
     height:clamp(220px,58vw,420px);
   }
-  .hero-media img{object-fit:var(--hero-mobile-fit);}
+  .hero-media img,
+  .hero-media video{object-fit:var(--hero-mobile-fit);}
   .hero-media.has-image::after{display:none;} /* 다크 오버레이 표시 안 함 */
   .hero-content{
     position:static;background:var(--bg-main);
@@ -682,8 +684,12 @@ a.model-card:hover .model-link .arrow{transform:translateX(5px);}
    비워두면 자동으로 안내 placeholder가 표시되며
    레이아웃은 깨지지 않습니다.
    ===================================================== */
+/* 히어로 배경 영상: 이 주소만 바꾸면 영상이 교체됩니다 (자동재생·무음·무한반복) */
+const VIDEO_LINKS = {
+  hero: "https://pub-4d0cdee0f05f468bb8bca2d3a0210ccc.r2.dev/CRN_EN-US_AIO_Rev2_05Sec_InTheatersMay1_1L_Rated_HD_V01_off_voice_0%20(2).mp4",
+};
+
 const IMAGE_LINKS = {
-  hero: "https://raw.githubusercontent.com/JNOHJINGYU/images/main/maybarh_hero.jpg",
 
   /* 1908: 제플린 LZ4 사고 / 국민 모금 관련 이미지 (기존 1921에 있던 비행선 이미지를 이동) */
   history1908: "https://raw.githubusercontent.com/JNOHJINGYU/images/main/1908_jeppelin.png",
@@ -890,32 +896,53 @@ function renderLineup(){
 }
 
 /* ==================================================
-   히어로 이미지 처리
-   - 있으면 표시, 없거나 로드 실패 시 은은한 그라데이션 배경 유지
-   - 오류 아이콘/깨진 이미지 노출 없음
+   히어로 배경 영상
+   - 자동재생 + 무음 + 무한반복 + 모바일 인라인 재생
+   - 화면 밖으로 나가면 일시정지해 배터리/데이터 절약
+   - 로드 실패 시 은은한 그라데이션 배경 유지 (오류 아이콘 없음)
    ================================================== */
 function initHero(){
   const media = document.getElementById('heroMedia');
-  const src = IMAGE_LINKS.hero;
-  if(src){
-    const img = document.createElement('img');
-    img.alt = 'Mercedes-Maybach 대표 이미지';
-    img.loading = 'eager'; /* 히어로 이미지는 lazy loading 적용하지 않음 */
-    img.onerror = function(){
-      console.error('[Maybach] 히어로 이미지 로딩 실패:', img.src);
-      media.classList.remove('has-image');
-      media.classList.add('no-image');
-      img.remove();
-    };
-    img.onload = function(){
-      media.classList.add('has-image');
-      media.classList.remove('no-image');
-    };
-    img.src = src;
-    media.appendChild(img);
-  } else {
+  const src = VIDEO_LINKS.hero;
+  if(!src){ media.classList.add('no-image'); return; }
+
+  const video = document.createElement('video');
+  video.muted = true;               /* 자동재생 조건: 무음 */
+  video.defaultMuted = true;
+  video.autoplay = true;
+  video.loop = true;                /* 무한 반복 */
+  video.playsInline = true;         /* iOS 전체화면 전환 방지 */
+  video.preload = 'auto';           /* 바로 버퍼링 시작 */
+  video.disablePictureInPicture = true;
+  video.setAttribute('muted','');
+  video.setAttribute('playsinline','');
+  video.setAttribute('webkit-playsinline','');
+  video.setAttribute('aria-hidden','true');
+  video.src = src;
+
+  video.addEventListener('loadeddata', function(){
+    media.classList.add('has-image');
+    media.classList.remove('no-image');
+  });
+  video.addEventListener('error', function(){
+    console.error('[Maybach] 히어로 영상 로딩 실패:', src);
+    media.classList.remove('has-image');
     media.classList.add('no-image');
+    video.remove();
+  });
+
+  media.appendChild(video);
+  const tryPlay = () => { const p = video.play(); if(p && p.catch) p.catch(()=>{}); };
+  tryPlay();
+
+  /* 화면에 보일 때만 재생 */
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting) tryPlay(); else video.pause(); });
+    }, {threshold:0.05}).observe(media);
   }
+  /* 다른 탭에서 돌아왔을 때 재생 재개 */
+  document.addEventListener('visibilitychange', () => { if(!document.hidden) tryPlay(); });
 }
 
 /* ==================================================
